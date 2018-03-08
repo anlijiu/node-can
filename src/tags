@@ -1,0 +1,500 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AccCode	weapon/controlcan.h	/^    DWORD	AccCode;$/;"	m	struct:_INIT_CONFIG
+AccMask	weapon/controlcan.h	/^    DWORD	AccMask;$/;"	m	struct:_INIT_CONFIG
+AcquireReceiveData	agent.cc	/^Agent::AcquireReceiveData(const Napi::CallbackInfo& info)$/;"	f	class:can::Agent
+AcquireReceiveData	weapon/weapon_controller.cc	/^WeaponController::AcquireReceiveData()$/;"	f	class:can::WeaponController
+AddAmmo	agent.cc	/^Agent::AddAmmo(const Napi::CallbackInfo& info) {$/;"	f	class:can::Agent
+AddRadarListener	weapon/weapon_controller.h	/^  virtual int AddRadarListener(std::function<void(const can_frame&)> const& listener) {$/;"	f	class:can::WeaponController
+Agent	agent.cc	/^Agent::Agent(const CallbackInfo &info)$/;"	f	class:can::Agent
+Agent	agent.h	/^class Agent: public Napi::ObjectWrap<Agent>$/;"	c	namespace:can
+Ammo	weapon/ammo/ammo.h	/^struct Ammo {$/;"	s	namespace:can
+AmmoGenerator	weapon/ammo/ammo_generator.cc	/^AmmoGenerator::AmmoGenerator(std::shared_ptr<MessageMeta> message_meta,$/;"	f	class:can::AmmoGenerator
+AmmoGenerator	weapon/ammo/ammo_generator.h	/^class AmmoGenerator {$/;"	c	namespace:can
+AmmoPartGenerator	weapon/ammo/ammo_part_generator.cc	/^AmmoPartGenerator::AmmoPartGenerator(std::shared_ptr<PartBuildStrategy> strategy)$/;"	f	class:can::AmmoPartGenerator
+AmmoPartGenerator	weapon/ammo/ammo_part_generator.h	/^class AmmoPartGenerator {$/;"	c	namespace:can
+ArLost_ErrData	weapon/controlcan.h	/^    BYTE	ArLost_ErrData;$/;"	m	struct:_ERR_INFO
+AssertFunctionArgs	tools/validate_arguments.h	/^AssertFunctionArgs(const CallbackInfo& info,$/;"	f	namespace:can
+Auto_	weapon/weapon_controller.cc	/^WeaponController::Auto_() {$/;"	f	class:can::WeaponController
+BOOL	weapon/controlcan.h	53;"	d
+BYTE	weapon/controlcan.h	43;"	d
+BuildStrategyType	weapon/ammo/build_strategy_type.h	/^enum BuildStrategyType {$/;"	g	namespace:can
+ByteOrder	tools/bits.h	/^enum ByteOrder {$/;"	g	namespace:can
+CANALYSTII_CONTROLLER_H	weapon/canalystii_controller.h	2;"	d
+CANALYST_SIGNAL_BUILDER_CONST_STRATEGY_H	can/signal_build_const_strategy.h	5;"	d
+CANALYST_SIGNAL_BUILDER_CONST_STRATEGY_H	weapon/ammo/part_build_const_strategy.h	5;"	d
+CAN_AGENT_H	agent.h	2;"	d
+CAN_AMMO_GENERATOR_H	weapon/ammo/ammo_generator.h	2;"	d
+CAN_AMMO_H	weapon/ammo/ammo.h	2;"	d
+CAN_AMMO_PART_BUILDER_H	weapon/ammo/ammo_part_generator.h	2;"	d
+CAN_BITS_H	tools/bits.h	2;"	d
+CAN_BUILD_STRATEGY_TYPE	weapon/ammo/build_strategy_type.h	2;"	d
+CAN_CANALYST_CANALYSTII_H	weapon/canalystii.h	6;"	d
+CAN_CAN_H	can/can.h	2;"	d
+CAN_GATLINGBARREL_H	weapon/gatling_barrel.h	6;"	d
+CAN_MAX_DLEN	can/can.h	4;"	d
+CAN_MESSAGE_H	can/message.h	2;"	d
+CAN_MESSAGE_META_H	can/message_meta.h	2;"	d
+CAN_META_HELPER_H	tools/meta_helper.h	6;"	d
+CAN_PART_BUILD_STRATEGY_H	weapon/ammo/part_build_strategy.h	2;"	d
+CAN_SIGNAL_H	can/signal.h	2;"	d
+CAN_SIGNAL_META_H	can/signal_meta.h	2;"	d
+CAN_SIGNAL_TRANSFORMER_H	can/message_build_strategy.h	2;"	d
+CAN_SIGNAL_TRANSFORMER_H	can/signal_build_strategy.h	2;"	d
+CAN_SIGNAL_TRANSFORMER_H	can/signal_transformer.h	2;"	d
+CAN_STORE_HOUSE_H	store_house.h	2;"	d
+CAN_TIMER_H	tools/timer.h	6;"	d
+CAN_UTILS_H	tools/utils.h	2;"	d
+CAN_VALIDATEARGUMENTS_H	tools/validate_arguments.h	6;"	d
+CANalystii	weapon/canalystii.cc	/^CANalystii::CANalystii(int vci_device_type, int vci_device_ind) : can_ind_port_{0,1} {$/;"	f	class:can::CANalystii
+CANalystii	weapon/canalystii.h	/^class CANalystii {$/;"	c	namespace:can
+CHAR	weapon/controlcan.h	44;"	d
+CIRCLE	main1.cpp	/^	CIRCLE = 0,$/;"	m	class:Shapes	file:
+CONTROLCAN1_H	weapon/controlcan.h	6;"	d
+CanalystiiController	weapon/canalystii_controller.cc	/^CanalystiiController::CanalystiiController()$/;"	f	class:can::CanalystiiController
+CanalystiiController	weapon/canalystii_controller.cc	/^CanalystiiController::CanalystiiController(std::string const &name, int rate)$/;"	f	class:can::CanalystiiController
+CanalystiiController	weapon/canalystii_controller.h	/^class CanalystiiController : public WeaponController {$/;"	c	namespace:can
+CeaseFire	agent.cc	/^Agent::CeaseFire(Napi::CallbackInfo const& info) {$/;"	f	class:can::Agent
+CeaseFire	weapon/weapon_controller.cc	/^WeaponController::CeaseFire()$/;"	f	class:can::WeaponController
+Circle	main1.cpp	/^	Circle( float rad ) : radius_ { rad } {}$/;"	f	struct:Circle
+Circle	main1.cpp	/^struct Circle : public Shape {$/;"	s	file:
+Config	main1.cpp	/^struct Config {$/;"	s	file:
+Create	main1.cpp	/^	static ResultType Create( Key key, Args... args ) {$/;"	f	class:Factory
+Create	store_house.h	/^  static ResultType Create(Key key, Args... args) {$/;"	f	class:can::StoreHouse
+CreateFunc	main1.cpp	/^	static Object * CreateFunc( Args... args ) {$/;"	f	class:Factory	file:
+CreateFunc	store_house.h	/^  static Object *CreateFunc(Args... args) {$/;"	f	class:can::StoreHouse
+DWORD	weapon/controlcan.h	47;"	d
+Data	weapon/controlcan.h	/^    BYTE	Data[8];$/;"	m	struct:_VCI_CAN_OBJ
+DataLen	weapon/controlcan.h	/^    BYTE	DataLen;$/;"	m	struct:_VCI_CAN_OBJ
+ERR_BUFFERCREATE	weapon/controlcan.h	35;"	d
+ERR_BUFFEROVERFLOW	weapon/controlcan.h	31;"	d
+ERR_CAN_BUSERR	weapon/controlcan.h	25;"	d
+ERR_CAN_ERRALARM	weapon/controlcan.h	22;"	d
+ERR_CAN_LOSE	weapon/controlcan.h	24;"	d
+ERR_CAN_OVERFLOW	weapon/controlcan.h	21;"	d
+ERR_CAN_PASSIVE	weapon/controlcan.h	23;"	d
+ERR_CMDFAILED	weapon/controlcan.h	34;"	d
+ERR_DEVICENOTEXIST	weapon/controlcan.h	32;"	d
+ERR_DEVICENOTOPEN	weapon/controlcan.h	30;"	d
+ERR_DEVICEOPEN	weapon/controlcan.h	29;"	d
+ERR_DEVICEOPENED	weapon/controlcan.h	28;"	d
+ERR_LOADKERNELDLL	weapon/controlcan.h	33;"	d
+ErrCode	weapon/controlcan.h	/^    UINT	ErrCode;$/;"	m	struct:_ERR_INFO
+ErrInterrupt	weapon/controlcan.h	/^    unsigned char	ErrInterrupt;$/;"	m	struct:_VCI_CAN_STATUS
+ExternFlag	weapon/controlcan.h	/^    BYTE	ExternFlag;\/\/是否是扩展帧$/;"	m	struct:_VCI_CAN_OBJ
+FACTORY_REGISTER	main1.cpp	146;"	d	file:
+FALSE	weapon/controlcan.h	55;"	d
+Factory	main1.cpp	/^class Factory {$/;"	c	file:
+Filter	weapon/controlcan.h	/^    unsigned char	Filter;$/;"	m	struct:_INIT_CONFIG
+Fire	agent.cc	/^Agent::Fire(Napi::CallbackInfo const& info) {$/;"	f	class:can::Agent
+Fire	weapon/weapon_controller.cc	/^WeaponController::Fire()$/;"	f	class:can::WeaponController
+GatlingBarrel	weapon/gatling_barrel.h	/^class GatlingBarrel : public std::vector<std::unique_ptr<AmmoGenerator>>$/;"	c	namespace:can
+Generate	weapon/ammo/ammo_generator.cc	/^AmmoGenerator::Generate() {$/;"	f	class:can::AmmoGenerator
+Generate	weapon/ammo/part_build_const_strategy.cc	/^uint64_t PartBuildConstStrategy::Generate()$/;"	f	class:can::PartBuildConstStrategy
+Generate	weapon/gatling_barrel.cc	/^GatlingBarrel::Generate()$/;"	f	class:can::GatlingBarrel
+GetInterval	tools/timer.cc	/^Timer::GetInterval() const {$/;"	f	class:can::Timer
+GetSignalMeta	weapon/ammo/part_build_strategy.h	/^  std::shared_ptr<SignalMeta> GetSignalMeta() { return signal_meta_; }$/;"	f	class:can::PartBuildStrategy
+GetSignalMetaTp	can/signal_build_strategy.h	/^  SignalMetaTp GetSignalMetaTp() { return signal_meta_; }$/;"	f	class:can::SignalBuildStrategy
+GetTimeoutFunc	tools/timer.cc	/^Timer::GetTimeoutFunc() const {$/;"	f	class:can::Timer
+Handlers	agent.h	/^  typedef std::vector<Napi::FunctionReference> Handlers;$/;"	t	class:can::Agent
+ID	weapon/controlcan.h	/^    UINT	ID;$/;"	m	struct:_VCI_CAN_OBJ
+INTELLIGENCE_AGENCY_H	intelligence-agency.h	2;"	d
+Init	agent.cc	/^Agent::Init(Napi::Env &env, Napi::Object &target) {$/;"	f	class:can::Agent
+Init	myobject.cc	/^void MyObject::Init(Napi::Env env, Napi::Object exports) {$/;"	f	class:MyObject
+Initialize	weapon/canalystii_controller.cc	/^int CanalystiiController::Initialize() {$/;"	f	class:can::CanalystiiController
+InitializeReceiver	weapon/weapon_controller.cc	/^WeaponController::InitializeReceiver() {$/;"	f	class:can::WeaponController
+IntelligenceAgency	intelligence-agency.h	/^class IntelligenceAgency {$/;"	c	namespace:can
+Interval	tools/timer.h	/^  typedef std::chrono::milliseconds Interval;$/;"	t	class:can::Timer
+IsReceiving	weapon/weapon_controller.cc	/^bool WeaponController::IsReceiving() {$/;"	f	class:can::WeaponController
+IsSingleShot	tools/timer.cc	/^Timer::IsSingleShot() const {$/;"	f	class:can::Timer
+Keys	store_house.h	/^  static std::vector<Key> Keys() {$/;"	f	class:can::StoreHouse
+LPVOID	weapon/controlcan.h	52;"	d
+MYOBJECT_H	myobject.h	2;"	d
+Message	can/message.h	/^struct Message {$/;"	s	namespace:can
+MessageBuildStragegy	can/message_build_strategy.h	/^  MessageBuildStragegy(SignalMeta signal_meta) : signal_meta_(signal_meta) {}$/;"	f	class:MessageBuildStragegy
+MessageBuildStragegy	can/message_build_strategy.h	/^class MessageBuildStragegy {$/;"	c
+MessageMeta	can/message_meta.h	/^struct MessageMeta {$/;"	s	namespace:can
+Mode	weapon/controlcan.h	/^    unsigned char	Mode;$/;"	m	struct:_INIT_CONFIG
+MsgId	weapon/ammo/ammo_generator.cc	/^AmmoGenerator::MsgId()$/;"	f	class:can::AmmoGenerator
+MyObject	myobject.cc	/^MyObject::MyObject(const Napi::CallbackInfo& info) : Napi::ObjectWrap<MyObject>(info) {$/;"	f	class:MyObject
+MyObject	myobject.h	/^class MyObject : public Napi::ObjectWrap<MyObject> {$/;"	c
+Name	can/signal_build_const_strategy.h	/^  std::string Name() { return name_; }$/;"	f	class:can::SignalBuildConstStrategy
+Name	weapon/ammo/ammo_part_generator.h	/^  std::string Name() { return strategy_->Name(); }$/;"	f	class:can::AmmoPartGenerator
+Name	weapon/ammo/part_build_strategy.h	/^  std::string Name() { return signal_meta_->name; }$/;"	f	class:can::PartBuildStrategy
+Name	weapon/weapon_controller.cc	/^WeaponController::Name()$/;"	f	class:can::WeaponController
+NewInstance	myobject.cc	/^Napi::Object MyObject::NewInstance(Napi::Value arg) {$/;"	f	class:MyObject
+OnReceiveMessages	weapon/weapon_controller.cc	/^WeaponController::OnReceiveMessages(std::vector<Message> & messages)$/;"	f	class:can::WeaponController
+PROPERTY_H	tools/property.h	2;"	d
+PVCI_BOARD_INFO	weapon/controlcan.h	/^} VCI_BOARD_INFO,*PVCI_BOARD_INFO;$/;"	t	typeref:struct:_VCI_BOARD_INFO
+PVCI_CAN_OBJ	weapon/controlcan.h	/^}VCI_CAN_OBJ,*PVCI_CAN_OBJ;$/;"	t	typeref:struct:_VCI_CAN_OBJ
+PVCI_CAN_STATUS	weapon/controlcan.h	/^}VCI_CAN_STATUS,*PVCI_CAN_STATUS;$/;"	t	typeref:struct:_VCI_CAN_STATUS
+PVCI_ERR_INFO	weapon/controlcan.h	/^} VCI_ERR_INFO,*PVCI_ERR_INFO;$/;"	t	typeref:struct:_ERR_INFO
+PVCI_INIT_CONFIG	weapon/controlcan.h	/^}VCI_INIT_CONFIG,*PVCI_INIT_CONFIG;$/;"	t	typeref:struct:_INIT_CONFIG
+PVOID	weapon/controlcan.h	48;"	d
+PartBuildConstStrategy	weapon/ammo/part_build_const_strategy.cc	/^PartBuildConstStrategy::PartBuildConstStrategy(std::shared_ptr<SignalMeta> signal_meta, double value)$/;"	f	class:can::PartBuildConstStrategy
+PartBuildConstStrategy	weapon/ammo/part_build_const_strategy.h	/^class PartBuildConstStrategy : public PartBuildStrategy {$/;"	c	namespace:can
+PartBuildStrategy	weapon/ammo/part_build_strategy.h	/^  explicit PartBuildStrategy(std::shared_ptr<SignalMeta> signal_meta): signal_meta_(signal_meta) {}$/;"	f	class:can::PartBuildStrategy
+PartBuildStrategy	weapon/ammo/part_build_strategy.h	/^class PartBuildStrategy {$/;"	c	namespace:can
+Passive_ErrData	weapon/controlcan.h	/^    BYTE	Passive_ErrData[3];$/;"	m	struct:_ERR_INFO
+Property	tools/property.h	/^  Property(Property<T> const& to_copy)$/;"	f	class:Property
+Property	tools/property.h	/^  Property(Property<T>&& to_copy)$/;"	f	class:Property
+Property	tools/property.h	/^  Property(T const& val) : value_(val) {}$/;"	f	class:Property
+Property	tools/property.h	/^  Property(T&& val)$/;"	f	class:Property
+Property	tools/property.h	/^class Property {$/;"	c
+RECT	main1.cpp	/^	RECT,$/;"	m	class:Shapes	file:
+ReceiveMessages	intelligence-agency.cc	/^IntelligenceAgency::ReceiveMessages(std::vector<Message> const& messages)$/;"	f	class:can::IntelligenceAgency
+ReceiveUnknownMessages	intelligence-agency.cc	/^IntelligenceAgency::ReceiveUnknownMessages(std::vector<Message> const& messages)$/;"	f	class:can::IntelligenceAgency
+Rect	main1.cpp	/^	Rect( float w, float h ) : w_ { w }, h_ { h } {}$/;"	f	struct:Rect
+Rect	main1.cpp	/^struct Rect : public Shape {$/;"	s	file:
+RegisterAgent	intelligence-agency.cc	/^void IntelligenceAgency::RegisterAgent(Agent* agent)$/;"	f	class:can::IntelligenceAgency
+RegisterItem	main1.cpp	/^    std::is_constructible<T, Args...>::value, bool >::type RegisterItem( Key key ) {$/;"	f	class:Factory
+RegisterItem	store_house.h	/^  std::is_constructible<T, Args...>::value, bool>::type RegisterItem(Key key) {$/;"	f	class:can::StoreHouse
+Release	weapon/canalystii_controller.cc	/^bool CanalystiiController::Release() {$/;"	f	class:can::CanalystiiController
+RemoteFlag	weapon/controlcan.h	/^    BYTE	RemoteFlag;\/\/是否是远程帧$/;"	m	struct:_VCI_CAN_OBJ
+RemoveAmmo	agent.cc	/^Agent::RemoveAmmo(const Napi::CallbackInfo& info) {$/;"	f	class:can::Agent
+RemoveRadarListener	weapon/weapon_controller.h	/^  virtual void RemoveRadarListener(int id) {$/;"	f	class:can::WeaponController
+Reserved	weapon/controlcan.h	/^    BYTE	Reserved[3];$/;"	m	struct:_VCI_CAN_OBJ
+Reserved	weapon/controlcan.h	/^    DWORD	Reserved;$/;"	m	struct:_INIT_CONFIG
+Reserved	weapon/controlcan.h	/^    DWORD	Reserved;$/;"	m	struct:_VCI_CAN_STATUS
+Reserved	weapon/controlcan.h	/^    USHORT	Reserved[4];$/;"	m	struct:_VCI_BOARD_INFO
+Rr	main1.cpp	/^    Rr(Config config) : mConfig{ config } {}$/;"	f	struct:Rr
+Rr	main1.cpp	/^struct Rr : public Shape {$/;"	s	file:
+Running	tools/timer.cc	/^Timer::Running() const {$/;"	f	class:can::Timer
+SIGNAL_H	tools/signal.h	2;"	d
+SRr	main1.cpp	/^	SRr(std::string const& name, int i ) : name_{ name }, i_{ i } {}$/;"	f	struct:SRr
+SRr	main1.cpp	/^struct SRr : public Shape {$/;"	s	file:
+STATUS_ERR	weapon/controlcan.h	40;"	d
+STATUS_OK	weapon/controlcan.h	39;"	d
+SendType	weapon/controlcan.h	/^    BYTE	SendType;$/;"	m	struct:_VCI_CAN_OBJ
+SetAmmoBuildStrategy	agent.cc	/^Agent::SetAmmoBuildStrategy(const Napi::CallbackInfo& info) {$/;"	f	class:can::Agent
+SetAmmoMetas	agent.cc	/^Agent::SetAmmoMetas(Napi::CallbackInfo const& info , Napi::Value const& value) {$/;"	f	class:can::Agent
+SetAmmos	agent.cc	/^Agent::SetAmmos(const Napi::CallbackInfo& info) {$/;"	f	class:can::Agent
+SetInterval	tools/timer.cc	/^Timer::SetInterval(const Timer::Interval &interval) {$/;"	f	class:can::Timer
+SetMetaData	weapon/weapon_controller.cc	/^WeaponController::SetMetaData(std::map<uint32_t, std::shared_ptr<MessageMeta>> const& mp_message_meta,$/;"	f	class:can::WeaponController
+SetSingleShot	tools/timer.cc	/^Timer::SetSingleShot(bool single_shot) {$/;"	f	class:can::Timer
+SetStrategy	weapon/ammo/ammo_generator.cc	/^AmmoGenerator::SetStrategy(std::string signal_name, std::shared_ptr<PartBuildStrategy> strategy)$/;"	f	class:can::AmmoGenerator
+SetStrategy	weapon/ammo/ammo_part_generator.cc	/^AmmoPartGenerator::SetStrategy(std::shared_ptr<PartBuildStrategy> strategy)$/;"	f	class:can::AmmoPartGenerator
+SetStrategy	weapon/weapon_controller.cc	/^WeaponController::SetStrategy(std::string signal_name,$/;"	f	class:can::WeaponController
+SetTimeoutFunc	tools/timer.cc	/^Timer::SetTimeoutFunc(const TimeoutFunc &timeout) {$/;"	f	class:can::Timer
+SetValue	weapon/ammo/part_build_const_strategy.cc	/^PartBuildConstStrategy::SetValue(double value)$/;"	f	class:can::PartBuildConstStrategy
+SetWeapon	agent.cc	/^Agent::SetWeapon(Napi::CallbackInfo const& info , Napi::Value const& value) {$/;"	f	class:can::Agent
+Shape	main1.cpp	/^	Shape( ) {}$/;"	f	struct:Shape
+Shape	main1.cpp	/^struct Shape {$/;"	s	file:
+Shapes	main1.cpp	/^enum class Shapes {$/;"	c	file:
+Shoot	weapon/canalystii_controller.cc	/^CanalystiiController::Shoot(Ammo const& ammo)$/;"	f	class:can::CanalystiiController
+Shoot	weapon/canalystii_controller.cc	/^CanalystiiController::Shoot(std::vector<Ammo> const& ammos)$/;"	f	class:can::CanalystiiController
+Signal	can/signal.h	/^struct Signal {$/;"	s	namespace:can
+Signal	tools/signal.h	/^  Signal() : current_id_(0) {}$/;"	f	class:Signal
+Signal	tools/signal.h	/^  Signal(Signal const& other) : current_id_(0) {}$/;"	f	class:Signal
+Signal	tools/signal.h	/^class Signal {$/;"	c
+SignalBuildConstStrategy	can/signal_build_const_strategy.h	/^  SignalBuildConstStrategy(SignalMetaTp const& signal_meta) : SignalBuildStrategy(signal_meta) {}$/;"	f	class:can::SignalBuildConstStrategy
+SignalBuildConstStrategy	can/signal_build_const_strategy.h	/^  SignalBuildConstStrategy(SignalMetaTp const& signal_meta, double value)$/;"	f	class:can::SignalBuildConstStrategy
+SignalBuildConstStrategy	can/signal_build_const_strategy.h	/^class SignalBuildConstStrategy : public SignalBuildStrategy {$/;"	c	namespace:can
+SignalBuildStrategy	can/signal_build_strategy.h	/^  explicit SignalBuildStrategy(SignalMetaTp const& signal_meta): signal_meta_(signal_meta) {}$/;"	f	class:can::SignalBuildStrategy
+SignalBuildStrategy	can/signal_build_strategy.h	/^class SignalBuildStrategy {$/;"	c	namespace:can
+SignalMeta	can/signal_meta.h	/^struct SignalMeta {$/;"	s	namespace:can
+SignalMetaTp	can/signal_meta.h	/^typedef std::shared_ptr<SignalMeta> SignalMetaTp;$/;"	t	namespace:can
+SignalTransformer	can/signal_transformer.h	/^class SignalTransformer {$/;"	c
+Signals	weapon/weapon_controller.h	/^  const std::map<std::string, std::shared_ptr<SignalMeta>>& Signals() {$/;"	f	class:can::WeaponController
+Size	store_house.h	/^  static size_t Size() {$/;"	f	class:can::StoreHouse
+SleepThenTimeout_	tools/timer.cc	/^void Timer::SleepThenTimeout_() {$/;"	f	class:can::Timer
+Start	agent.cc	/^Agent::Start(Napi::CallbackInfo const& info) {$/;"	f	class:can::Agent
+Start	tools/timer.cc	/^Timer::Start(bool multi_thread) {$/;"	f	class:can::Timer
+Stop	agent.cc	/^Agent::Stop(Napi::CallbackInfo const& info) {$/;"	f	class:can::Agent
+Stop	tools/timer.cc	/^Timer::Stop() {$/;"	f	class:can::Timer
+StoreHouse	store_house.h	/^class StoreHouse {$/;"	c	namespace:can
+StoreHouseRegister	store_house.h	/^    StoreHouseRegister(Key const &name) {$/;"	f	struct:can::StoreHouse::StoreHouseRegister
+StoreHouseRegister	store_house.h	/^  struct StoreHouseRegister {$/;"	s	class:can::StoreHouse
+StrategyType	weapon/ammo/ammo_part_generator.cc	/^AmmoPartGenerator::StrategyType()$/;"	f	class:can::AmmoPartGenerator
+SyncMetaData	agent.cc	/^Agent::SyncMetaData(const Napi::CallbackInfo& info) {$/;"	f	class:can::Agent
+TRUE	weapon/controlcan.h	54;"	d
+Temporize_	tools/timer.cc	/^void Timer::Temporize_() {$/;"	f	class:can::Timer
+TimeFlag	weapon/controlcan.h	/^    BYTE	TimeFlag;$/;"	m	struct:_VCI_CAN_OBJ
+TimeStamp	weapon/controlcan.h	/^    UINT	TimeStamp;$/;"	m	struct:_VCI_CAN_OBJ
+TimeoutFunc	tools/timer.h	/^  typedef std::function<void(void)> TimeoutFunc;$/;"	t	class:can::Timer
+Timer	tools/timer.cc	/^Timer::Timer(const TimeoutFunc &timeout_func)$/;"	f	class:can::Timer
+Timer	tools/timer.cc	/^Timer::Timer(const TimeoutFunc &timeout_func,$/;"	f	class:can::Timer
+Timer	tools/timer.h	/^class Timer {$/;"	c	namespace:can
+Timing0	weapon/controlcan.h	/^    unsigned char	Timing0;$/;"	m	struct:_INIT_CONFIG
+Timing1	weapon/controlcan.h	/^    unsigned char	Timing1;$/;"	m	struct:_INIT_CONFIG
+Type	weapon/ammo/part_build_const_strategy.cc	/^PartBuildConstStrategy::Type()$/;"	f	class:can::PartBuildConstStrategy
+UINT	weapon/controlcan.h	46;"	d
+UINT32	weapon/controlcan.h	51;"	d
+ULONG	weapon/controlcan.h	49;"	d
+USHORT	weapon/controlcan.h	42;"	d
+UnInitializeReceiver	weapon/weapon_controller.cc	/^WeaponController::UnInitializeReceiver() {$/;"	f	class:can::WeaponController
+UnRegisterAgent	intelligence-agency.cc	/^void IntelligenceAgency::UnRegisterAgent(Agent* agent)$/;"	f	class:can::IntelligenceAgency
+VCI_BOARD_INFO	weapon/controlcan.h	/^} VCI_BOARD_INFO,*PVCI_BOARD_INFO;$/;"	t	typeref:struct:_VCI_BOARD_INFO
+VCI_CAN232	weapon/controlcan.h	14;"	d
+VCI_CANLite	weapon/controlcan.h	16;"	d
+VCI_CAN_OBJ	weapon/controlcan.h	/^}VCI_CAN_OBJ,*PVCI_CAN_OBJ;$/;"	t	typeref:struct:_VCI_CAN_OBJ
+VCI_CAN_STATUS	weapon/controlcan.h	/^}VCI_CAN_STATUS,*PVCI_CAN_STATUS;$/;"	t	typeref:struct:_VCI_CAN_STATUS
+VCI_ERR_INFO	weapon/controlcan.h	/^} VCI_ERR_INFO,*PVCI_ERR_INFO;$/;"	t	typeref:struct:_ERR_INFO
+VCI_INIT_CONFIG	weapon/controlcan.h	/^}VCI_INIT_CONFIG,*PVCI_INIT_CONFIG;$/;"	t	typeref:struct:_INIT_CONFIG
+VCI_ISA5420	weapon/controlcan.h	18;"	d
+VCI_ISA9620	weapon/controlcan.h	17;"	d
+VCI_PCI5110	weapon/controlcan.h	15;"	d
+VCI_PCI5121	weapon/controlcan.h	9;"	d
+VCI_PCI9810	weapon/controlcan.h	10;"	d
+VCI_PCI9820	weapon/controlcan.h	13;"	d
+VCI_USBCAN1	weapon/controlcan.h	11;"	d
+VCI_USBCAN2	weapon/controlcan.h	12;"	d
+Val	myobject.h	/^  double Val() const { return val_; }$/;"	f	class:MyObject
+Value	can/signal_build_const_strategy.h	/^  void Value(double value) {$/;"	f	class:can::SignalBuildConstStrategy
+WEAPON_CONTROLLER_H	weapon/weapon_controller.h	2;"	d
+WeaponController	weapon/weapon_controller.cc	/^WeaponController::WeaponController(std::string const &name)$/;"	f	class:can::WeaponController
+WeaponController	weapon/weapon_controller.h	/^class WeaponController {$/;"	c	namespace:can
+Weapons	agent.cc	/^Agent::Weapons(Napi::CallbackInfo const& info ) {$/;"	f	class:can::Agent
+_ENUMERATE_H	tools/enumerate.h	2;"	d
+_ERR_INFO	weapon/controlcan.h	/^typedef struct _ERR_INFO{$/;"	s
+_INIT_CONFIG	weapon/controlcan.h	/^typedef struct _INIT_CONFIG{$/;"	s
+_VCI_BOARD_INFO	weapon/controlcan.h	/^typedef  struct  _VCI_BOARD_INFO{$/;"	s
+_VCI_CAN_OBJ	weapon/controlcan.h	/^typedef  struct  _VCI_CAN_OBJ{$/;"	s
+_VCI_CAN_STATUS	weapon/controlcan.h	/^typedef struct _VCI_CAN_STATUS{$/;"	s
+a	main1.cpp	/^    float a;$/;"	m	struct:Config	file:
+addon	addon.js	/^var addon = require('bindings')('addon');$/;"	v
+agents	intelligence-agency.cc	/^std::vector<Agent*> IntelligenceAgency::agents;$/;"	m	class:can::IntelligenceAgency	file:
+agents	intelligence-agency.h	/^  static std::vector<Agent*> agents;$/;"	m	class:can::IntelligenceAgency
+ammo_generators_	weapon/weapon_controller.h	/^  std::vector<std::unique_ptr<AmmoGenerator>> ammo_generators_;$/;"	m	class:can::WeaponController
+b	main1.cpp	/^    std::string b;$/;"	m	struct:Config	file:
+begin	tools/enumerate.h	/^  enumerate_iterator<C> begin() {$/;"	f	class:can::enumerate_impl
+bitstoByteArray	tools/utils.cc	/^unsigned char* bitstoByteArray(std::bitset<64> const& bits) {$/;"	f	namespace:can
+can	agent.cc	/^namespace can {$/;"	n	file:
+can	agent.h	/^namespace can {$/;"	n
+can	can/can.cc	/^namespace can {$/;"	n	file:
+can	can/can.h	/^namespace can {$/;"	n
+can	can/message.h	/^namespace can {$/;"	n
+can	can/message_meta.h	/^namespace can {$/;"	n
+can	can/signal.h	/^namespace can {$/;"	n
+can	can/signal_build_const_strategy.cc	/^namespace can {$/;"	n	file:
+can	can/signal_build_const_strategy.h	/^namespace can {$/;"	n
+can	can/signal_build_strategy.h	/^namespace can {$/;"	n
+can	can/signal_meta.h	/^namespace can {$/;"	n
+can	intelligence-agency.cc	/^namespace can {$/;"	n	file:
+can	intelligence-agency.h	/^namespace can {$/;"	n
+can	store_house.h	/^namespace can {$/;"	n
+can	tools/bits.h	/^namespace can {$/;"	n
+can	tools/enumerate.h	/^namespace can {$/;"	n
+can	tools/meta_helper.cc	/^namespace can {$/;"	n	file:
+can	tools/meta_helper.h	/^namespace can {$/;"	n
+can	tools/timer.cc	/^namespace can {$/;"	n	file:
+can	tools/timer.h	/^namespace can {$/;"	n
+can	tools/utils.cc	/^namespace can {$/;"	n	file:
+can	tools/utils.h	/^namespace can {$/;"	n
+can	tools/validate_arguments.h	/^namespace can {$/;"	n
+can	weapon/ammo/ammo.h	/^namespace can {$/;"	n
+can	weapon/ammo/ammo_generator.cc	/^namespace can {$/;"	n	file:
+can	weapon/ammo/ammo_generator.h	/^namespace can {$/;"	n
+can	weapon/ammo/ammo_part_generator.cc	/^namespace can {$/;"	n	file:
+can	weapon/ammo/ammo_part_generator.h	/^namespace can {$/;"	n
+can	weapon/ammo/build_strategy_type.h	/^namespace can {$/;"	n
+can	weapon/ammo/part_build_const_strategy.cc	/^namespace can {$/;"	n	file:
+can	weapon/ammo/part_build_const_strategy.h	/^namespace can {$/;"	n
+can	weapon/ammo/part_build_strategy.h	/^namespace can {$/;"	n
+can	weapon/canalystii.cc	/^namespace can {$/;"	n	file:
+can	weapon/canalystii.h	/^namespace can {$/;"	n
+can	weapon/canalystii_controller.cc	/^namespace can {$/;"	n	file:
+can	weapon/canalystii_controller.h	/^namespace can {$/;"	n
+can	weapon/gatling_barrel.cc	/^namespace can {$/;"	n	file:
+can	weapon/gatling_barrel.h	/^namespace can {$/;"	n
+can	weapon/weapon_controller.cc	/^namespace can {$/;"	n	file:
+can	weapon/weapon_controller.h	/^namespace can {$/;"	n
+can_Num	weapon/controlcan.h	/^    BYTE	can_Num;$/;"	m	struct:_VCI_BOARD_INFO
+can_dlc	can/can.h	/^    unsigned char can_dlc; \/* frame payload length in byte (0 .. CAN_MAX_DLEN) *\/$/;"	m	struct:can::final
+can_id	can/can.h	/^    unsigned int  can_id;  \/* 32 bit CAN_ID + EFF\/RTR\/ERR flags *\/$/;"	m	struct:can::final
+can_ind_port_	weapon/canalystii.h	/^  const unsigned int can_ind_port_[2];$/;"	m	class:can::CANalystii
+can_node_	weapon/canalystii_controller.h	/^  CANalystii can_node_;$/;"	m	class:can::CanalystiiController
+close_device	weapon/canalystii.cc	/^bool CANalystii::close_device(){$/;"	f	class:can::CANalystii
+connect	tools/signal.h	/^  int connect(std::function<void(Args...)> const& slot) const {$/;"	f	class:Signal
+connect_member	tools/signal.h	/^  int connect_member(T *inst, void (T::*func)(Args...) const) {$/;"	f	class:Signal
+connect_member	tools/signal.h	/^  int connect_member(T *inst, void (T::*func)(Args...)) {$/;"	f	class:Signal
+constructor	agent.cc	/^FunctionReference Agent::constructor;$/;"	m	class:can::Agent	file:
+constructor	agent.h	/^  static Napi::FunctionReference constructor;$/;"	m	class:can::Agent
+constructor	myobject.cc	/^Napi::FunctionReference MyObject::constructor;$/;"	m	class:MyObject	file:
+constructor	myobject.h	/^  static Napi::FunctionReference constructor;$/;"	m	class:MyObject
+container_	tools/enumerate.h	/^  C container_;$/;"	m	class:can::enumerate_impl
+current_id_	tools/signal.h	/^  mutable int current_id_;$/;"	m	class:Signal
+data	can/can.h	/^    unsigned char data[CAN_MAX_DLEN] __attribute__((aligned(8)));$/;"	m	struct:can::final
+data	can/message.h	/^  std::string data;$/;"	m	struct:can::Message
+data	weapon/ammo/ammo.h	/^  uint64_t data;$/;"	m	struct:can::Ammo
+disconnect	tools/signal.h	/^  void disconnect(int id) const {$/;"	f	class:Signal
+disconnect_all	tools/signal.h	/^  void disconnect_all() const {$/;"	f	class:Signal
+disconnect_auditors	tools/property.h	/^  virtual void disconnect_auditors() {$/;"	f	class:Property
+dlc	can/message.h	/^  uint8_t dlc;$/;"	m	struct:can::Message
+dlc	can/message_meta.h	/^  uint8_t dlc;$/;"	m	struct:can::MessageMeta
+dlc	weapon/ammo/ammo.h	/^  uint8_t dlc;$/;"	m	struct:can::Ammo
+dr_Version	weapon/controlcan.h	/^    USHORT	dr_Version;$/;"	m	struct:_VCI_BOARD_INFO
+emit	tools/signal.h	/^  void emit(Args... p) {$/;"	f	class:Signal
+end	tools/enumerate.h	/^  enumerate_iterator<C> end() {$/;"	f	class:can::enumerate_impl
+enumerate	tools/enumerate.h	/^enumerate_impl<C> enumerate(C&& container, size_t start = 0) {$/;"	f	namespace:can
+enumerate	tools/enumerate.h	/^enumerate_impl<std::vector<T>> enumerate(std::initializer_list<T> list, size_t start = 0) {$/;"	f	namespace:can
+enumerate_impl	tools/enumerate.h	/^  enumerate_impl(C&& container, size_t start) :$/;"	f	class:can::enumerate_impl
+enumerate_impl	tools/enumerate.h	/^class enumerate_impl {$/;"	c	namespace:can
+enumerate_iterator	tools/enumerate.h	/^  enumerate_iterator(IterType it, size_t index) :$/;"	f	class:can::enumerate_iterator
+enumerate_iterator	tools/enumerate.h	/^class enumerate_iterator {$/;"	c	namespace:can
+extractBits	tools/utils.cc	/^long extractBits(const uint8_t data[], short offset, size_t length, ByteOrder order) {$/;"	f	namespace:can
+final	can/can.h	/^struct can_frame final {$/;"	s	namespace:can
+firing_	weapon/weapon_controller.h	/^  bool firing_ = false;$/;"	m	class:can::WeaponController
+frame_property_	weapon/weapon_controller.h	/^  Property<can_frame> frame_property_;\/\/TODO$/;"	m	class:can::WeaponController
+fw_Version	weapon/controlcan.h	/^    USHORT	fw_Version;$/;"	m	struct:_VCI_BOARD_INFO
+generate	can/signal_build_const_strategy.cc	/^std::bitset<64> SignalBuildConstStrategy::generate() {$/;"	f	class:can::SignalBuildConstStrategy
+generate	weapon/ammo/ammo_part_generator.cc	/^AmmoPartGenerator::generate()$/;"	f	class:can::AmmoPartGenerator
+generators_	weapon/ammo/ammo_generator.h	/^    std::vector<AmmoPartGenerator> generators_;$/;"	m	class:can::AmmoGenerator
+get	tools/property.h	/^  virtual T const& get() const { return value_; }$/;"	f	class:Property
+getMap	main1.cpp	/^    static CreatorMap& getMap() {$/;"	f	class:Factory	file:
+getMap	store_house.h	/^  static CreatorMap &getMap() {$/;"	f	class:can::StoreHouse
+h_	main1.cpp	/^	float h_ = 5.f;$/;"	m	struct:Rect	file:
+hw_Version	weapon/controlcan.h	/^    USHORT	hw_Version;$/;"	m	struct:_VCI_BOARD_INFO
+i_	main1.cpp	/^    int i_;$/;"	m	struct:SRr	file:
+id	can/message.h	/^  uint32_t id;$/;"	m	struct:can::Message
+id	can/message_meta.h	/^  uint32_t id;$/;"	m	struct:can::MessageMeta
+id	weapon/ammo/ammo.h	/^  uint32_t id;$/;"	m	struct:can::Ammo
+in_Version	weapon/controlcan.h	/^    USHORT	in_Version;$/;"	m	struct:_VCI_BOARD_INFO
+index_	tools/enumerate.h	/^  size_t index_;$/;"	m	class:can::enumerate_iterator
+init	addon.cc	/^init(Napi::Env env, Napi::Object exports)$/;"	f
+init_can_interface	weapon/canalystii.cc	/^bool CANalystii::init_can_interface(unsigned int can_idx, const VCI_INIT_CONFIG& vci_conf){$/;"	f	class:can::CANalystii
+interval_	tools/timer.h	/^  Interval interval_ = Interval(0);$/;"	m	class:can::Timer
+irq_Num	weapon/controlcan.h	/^    USHORT	irq_Num;$/;"	m	struct:_VCI_BOARD_INFO
+is_dev_start_	weapon/canalystii.h	/^  bool is_dev_start_;$/;"	m	class:can::CANalystii
+is_port_init_	weapon/canalystii.h	/^  bool is_port_init_[2];$/;"	m	class:can::CANalystii
+is_port_start_	weapon/canalystii.h	/^  bool is_port_start_[2];$/;"	m	class:can::CANalystii
+is_receive_t_freeze_	weapon/weapon_controller.h	/^  bool is_receive_t_freeze_ = true;$/;"	m	class:can::WeaponController
+is_receiving_	weapon/weapon_controller.h	/^  bool is_receiving_ = false;$/;"	m	class:can::WeaponController
+is_signed	can/signal_meta.h	/^    bool is_signed;$/;"	m	struct:can::SignalMeta
+is_single_shot_	tools/timer.h	/^  bool is_single_shot_ = true;$/;"	m	class:can::Timer
+kBigEndian	tools/bits.h	/^  kBigEndian = 0,$/;"	e	enum:can::ByteOrder
+kConst	weapon/ammo/build_strategy_type.h	/^  kConst = 0,$/;"	e	enum:can::BuildStrategyType
+kCos	weapon/ammo/build_strategy_type.h	/^  kCos,$/;"	e	enum:can::BuildStrategyType
+kLittleEndian	tools/bits.h	/^  kLittleEndian,$/;"	e	enum:can::ByteOrder
+kSin	weapon/ammo/build_strategy_type.h	/^  kSin,$/;"	e	enum:can::BuildStrategyType
+known	can/message.h	/^  bool known;$/;"	m	struct:can::Message
+length	can/signal_meta.h	/^    uint32_t length;$/;"	m	struct:can::SignalMeta
+loadAmmo	weapon/weapon_controller.cc	/^WeaponController::loadAmmo(std::vector<uint32_t> msg_ids)$/;"	f	class:can::WeaponController
+loadAmmo	weapon/weapon_controller.cc	/^WeaponController::loadAmmo(uint32_t msg_id)$/;"	f	class:can::WeaponController
+loaded_ammos_	weapon/weapon_controller.h	/^  std::vector<uint32_t> loaded_ammos_;$/;"	m	class:can::WeaponController
+mConfig	main1.cpp	/^    Config mConfig;$/;"	m	struct:Rr	file:
+main	main.cpp	/^int main(int argc, char **argv) {$/;"	f
+main	main1.cpp	/^int main( ) {$/;"	f
+maximum	can/signal_meta.h	/^    double maximum;$/;"	m	struct:can::SignalMeta
+message_meta_	weapon/ammo/ammo_generator.h	/^    std::shared_ptr<MessageMeta> message_meta_;$/;"	m	class:can::AmmoGenerator
+minimum	can/signal_meta.h	/^    double minimum;$/;"	m	struct:can::SignalMeta
+mp_message_meta_	weapon/weapon_controller.h	/^  std::map<uint32_t, std::shared_ptr<MessageMeta>> mp_message_meta_;$/;"	m	class:can::WeaponController
+mp_signal_meta_	weapon/weapon_controller.h	/^  std::map<std::string, std::shared_ptr<SignalMeta>> mp_signal_meta_;$/;"	m	class:can::WeaponController
+mp_strategies_	weapon/weapon_controller.h	/^  std::map<std::string, std::shared_ptr<PartBuildStrategy>> mp_strategies_;$/;"	m	class:can::WeaponController
+msg_handlers	agent.h	/^  Handlers msg_handlers;$/;"	m	class:can::Agent
+name	can/message.h	/^  std::string name;$/;"	m	struct:can::Message
+name	can/message_meta.h	/^  std::string name;$/;"	m	struct:can::MessageMeta
+name	can/signal.h	/^  std::string name;$/;"	m	struct:can::Signal
+name	can/signal_meta.h	/^    std::string name;$/;"	m	struct:can::SignalMeta
+name_	can/signal_build_const_strategy.h	/^  const std::string name_ = "const";$/;"	m	class:can::SignalBuildConstStrategy
+name_	main1.cpp	/^    std::string name_ = "haha";$/;"	m	struct:SRr	file:
+name_	weapon/weapon_controller.h	/^  std::string name_;$/;"	m	class:can::WeaponController
+obj1	addon.js	/^var obj1 = addon.createObject(10);$/;"	v
+obj2	addon.js	/^var obj2 = addon.createObject(20);$/;"	v
+offset	can/signal_meta.h	/^    double offset;$/;"	m	struct:can::SignalMeta
+onStartReceive	weapon/canalystii_controller.cc	/^CanalystiiController::onStartReceive()$/;"	f	class:can::CanalystiiController
+onStopReceive	weapon/canalystii_controller.cc	/^CanalystiiController::onStopReceive()$/;"	f	class:can::CanalystiiController
+on_change	tools/property.h	/^  virtual Signal<T> const& on_change() const {$/;"	f	class:Property
+on_change_	tools/property.h	/^  Signal<T> on_change_;$/;"	m	class:Property
+operator !=	can/can.h	/^    bool operator != (can_frame const& value) const {$/;"	f	struct:can::final
+operator !=	tools/enumerate.h	/^  bool operator!=(const enumerate_iterator& rhs) {$/;"	f	class:can::enumerate_iterator
+operator ()	tools/property.h	/^  T const& operator()() const {$/;"	f	class:Property
+operator *	tools/enumerate.h	/^  PairType operator*() {$/;"	f	class:can::enumerate_iterator
+operator ++	tools/enumerate.h	/^  enumerate_iterator& operator++() {$/;"	f	class:can::enumerate_iterator
+operator <<	can/can.cc	/^std::ostream& operator<<(std::ostream &out, can_frame value) {$/;"	f	namespace:can
+operator <<	main1.cpp	/^std::ostream& operator<<( std::ostream& os, Config config) {$/;"	f
+operator <<	main1.cpp	/^std::ostream& operator<<( std::ostream& os, std::unique_ptr<Shape> const & ptr ) {$/;"	f
+operator <<	tools/property.h	/^std::ostream& operator<<(std::ostream& str, Property<T> const& val) {$/;"	f
+operator =	can/can.h	/^    can_frame& operator=(can_frame const& value) {$/;"	f	struct:can::final
+operator =	tools/property.h	/^  virtual Property<T>& operator=(Property<T> const& rhs) {$/;"	f	class:Property
+operator =	tools/property.h	/^  virtual Property<T>& operator=(T const& rhs) {$/;"	f	class:Property
+operator =	tools/signal.h	/^  Signal& operator=(Signal const& other) {$/;"	f	class:Signal
+operator ==	can/can.h	/^    bool operator == (can_frame const& value) const {$/;"	f	struct:can::final
+operator ==	can/message_meta.h	/^  bool operator==(const MessageMeta & obj2) const$/;"	f	struct:can::MessageMeta
+operator >>	tools/property.h	/^std::istream& operator>>(std::istream& str, Property<T>& val) {$/;"	f
+order	can/signal_meta.h	/^    ByteOrder order;$/;"	m	struct:can::SignalMeta
+override	weapon/ammo/part_build_const_strategy.h	/^  BuildStrategyType Type() override;$/;"	m	class:can::PartBuildConstStrategy
+override	weapon/ammo/part_build_const_strategy.h	/^  uint64_t Generate() override ;$/;"	m	class:can::PartBuildConstStrategy
+override	weapon/canalystii_controller.h	/^  bool Release() override ;$/;"	m	class:can::CanalystiiController
+override	weapon/canalystii_controller.h	/^  int Initialize() override ;$/;"	m	class:can::CanalystiiController
+override	weapon/canalystii_controller.h	/^  std::tuple<bool, int> Shoot(Ammo const& ammo) override ;$/;"	m	class:can::CanalystiiController
+override	weapon/canalystii_controller.h	/^  std::tuple<bool, int> Shoot(std::vector<Ammo> const& ammos) override;$/;"	m	class:can::CanalystiiController
+override	weapon/canalystii_controller.h	/^  void onStartReceive() override;$/;"	m	class:can::CanalystiiController
+override	weapon/canalystii_controller.h	/^  void onStopReceive() override;$/;"	m	class:can::CanalystiiController
+position	weapon/gatling_barrel.h	/^  int position;$/;"	m	class:can::GatlingBarrel
+printBits	tools/utils.cc	/^void printBits(size_t const size, void const *const ptr) {$/;"	f	namespace:can
+radius_	main1.cpp	/^	float radius_ = 1.f;$/;"	m	struct:Circle	file:
+rate_	weapon/canalystii_controller.h	/^  int rate_;$/;"	m	class:can::CanalystiiController
+raw	can/message.h	/^  uint8_t raw[8];$/;"	m	struct:can::Message
+receive_can_frame	weapon/canalystii.cc	/^unsigned int CANalystii::receive_can_frame(unsigned int can_idx, VCI_CAN_OBJ *recv_obj, unsigned int recv_len, int wait_time){$/;"	f	class:can::CANalystii
+receive_cv_	weapon/weapon_controller.h	/^  std::condition_variable receive_cv_;$/;"	m	class:can::WeaponController
+receive_mtx	weapon/weapon_controller.h	/^  std::mutex receive_mtx;$/;"	m	class:can::WeaponController
+receive_t_	weapon/weapon_controller.h	/^  std::thread receive_t_;$/;"	m	class:can::WeaponController
+receiver_t_	weapon/canalystii_controller.h	/^  std::thread receiver_t_;$/;"	m	class:can::CanalystiiController
+recv_messages	weapon/weapon_controller.h	/^  std::map<uint32_t, Message> recv_messages;$/;"	m	class:can::WeaponController
+regALCapture	weapon/controlcan.h	/^    unsigned char	regALCapture;$/;"	m	struct:_VCI_CAN_STATUS
+regECCapture	weapon/controlcan.h	/^    unsigned char	regECCapture;$/;"	m	struct:_VCI_CAN_STATUS
+regEWLimit	weapon/controlcan.h	/^    unsigned char	regEWLimit;$/;"	m	struct:_VCI_CAN_STATUS
+regMode	weapon/controlcan.h	/^    unsigned char	regMode;$/;"	m	struct:_VCI_CAN_STATUS
+regRECounter	weapon/controlcan.h	/^    unsigned char	regRECounter;$/;"	m	struct:_VCI_CAN_STATUS
+regStatus	weapon/controlcan.h	/^    unsigned char	regStatus;$/;"	m	struct:_VCI_CAN_STATUS
+regTECounter	weapon/controlcan.h	/^    unsigned char	regTECounter;$/;"	m	struct:_VCI_CAN_STATUS
+result	addon.js	/^var result = addon.add(obj1, obj2);$/;"	v
+reverse	tools/utils.h	/^std::bitset<max> reverse(std::bitset<max> const &bset)$/;"	f	namespace:can
+rtr	can/can.h	/^    unsigned char rtr;\/**< remote transmission request. (0 if not rtr message, 1 if rtr message) *\/$/;"	m	struct:can::final
+running_	tools/timer.h	/^  bool running_ = false;$/;"	m	class:can::Timer
+scaling	can/signal_meta.h	/^    double scaling;$/;"	m	struct:can::SignalMeta
+send_can_frame	weapon/canalystii.cc	/^bool CANalystii::send_can_frame(unsigned int can_idx, PVCI_CAN_OBJ send_obj, unsigned int send_len){$/;"	f	class:can::CANalystii
+set	tools/property.h	/^  virtual void set(T const& value) {$/;"	f	class:Property
+signal_meta_	can/signal_build_strategy.h	/^  SignalMetaTp signal_meta_ = nullptr;$/;"	m	class:can::SignalBuildStrategy
+signal_meta_	can/signal_transformer.h	/^  SignalMeta signal_meta_;$/;"	m	class:SignalTransformer
+signal_meta_	weapon/ammo/part_build_const_strategy.h	/^  std::shared_ptr<SignalMeta> signal_meta_ = nullptr;$/;"	m	class:can::PartBuildConstStrategy
+signal_meta_	weapon/ammo/part_build_strategy.h	/^  std::shared_ptr<SignalMeta> signal_meta_;$/;"	m	class:can::PartBuildStrategy
+signal_names	can/message_meta.h	/^  std::vector<std::string> signal_names;$/;"	m	struct:can::MessageMeta
+signals	can/message.h	/^  std::vector<Signal> signals;$/;"	m	struct:can::Message
+slots_	tools/signal.h	/^  mutable std::map<int, std::function<void(Args...)>> slots_;$/;"	m	class:Signal
+start_	tools/enumerate.h	/^  const size_t start_;$/;"	m	class:can::enumerate_impl
+start_bit	can/signal_meta.h	/^    uint32_t start_bit;$/;"	m	struct:can::SignalMeta
+start_device	weapon/canalystii.cc	/^bool CANalystii::start_device(){$/;"	f	class:can::CANalystii
+str_Serial_Num	weapon/controlcan.h	/^    CHAR	str_Serial_Num[20];$/;"	m	struct:_VCI_BOARD_INFO
+str_hw_Type	weapon/controlcan.h	/^    CHAR	str_hw_Type[40];$/;"	m	struct:_VCI_BOARD_INFO
+strageties_	can/message_build_strategy.h	/^  std::vector<SignalBuildStragety> strageties_;$/;"	m	class:MessageBuildStragegy
+strategy_	weapon/ammo/ammo_part_generator.h	/^  std::shared_ptr<PartBuildStrategy> strategy_ = nullptr;$/;"	m	class:can::AmmoPartGenerator
+stringstream_	weapon/weapon_controller.h	/^  std::stringstream stringstream_;$/;"	m	class:can::WeaponController
+thread_	tools/timer.h	/^  std::thread thread_;$/;"	m	class:can::Timer
+timeout_func_	tools/timer.h	/^  TimeoutFunc timeout_func_ = nullptr;$/;"	m	class:can::Timer
+timer_	weapon/weapon_controller.h	/^  Timer timer_;$/;"	m	class:can::WeaponController
+transform	tools/utils.cc	/^double transform(const uint8_t data[],  size_t length, std::shared_ptr<SignalMeta> signal_meta) {$/;"	f	namespace:can
+transform	tools/utils.cc	/^uint64_t transform(double value, std::shared_ptr<SignalMeta> signal_meta) {$/;"	f	namespace:can
+transformer	tools/utils.cc	/^std::bitset<64> transformer(double value, std::shared_ptr<SignalMeta> signal_meta) {$/;"	f	namespace:can
+type_	weapon/ammo/part_build_const_strategy.h	/^  const BuildStrategyType type_ = kConst;$/;"	m	class:can::PartBuildConstStrategy
+units	can/signal_meta.h	/^    std::string units;$/;"	m	struct:can::SignalMeta
+unknown_msg_handlers	agent.h	/^  Handlers unknown_msg_handlers;$/;"	m	class:can::Agent
+unloadAmmo	weapon/weapon_controller.cc	/^WeaponController::unloadAmmo(uint32_t msg_id)$/;"	f	class:can::WeaponController
+unpack_message_meta	tools/meta_helper.cc	/^unpack_message_meta(Napi::Env env, Napi::Object message_meta_obj) {$/;"	f	namespace:can
+unpack_signal_meta	tools/meta_helper.cc	/^unpack_signal_meta(Napi::Env env, Napi::Object signal_meta_obj) {$/;"	f	namespace:can
+unpack_strategy	tools/meta_helper.cc	/^unpack_strategy(Napi::Env env, Napi::Object strategy_js, std::map<std::string, std::shared_ptr<SignalMeta>> const& signals )$/;"	f	namespace:can
+val_	myobject.h	/^  double val_;$/;"	m	class:MyObject
+value	can/signal.h	/^  double value;$/;"	m	struct:can::Signal
+value_	can/signal_build_const_strategy.h	/^  double value_ = 0;$/;"	m	class:can::SignalBuildConstStrategy
+value_	tools/property.h	/^  T value_;$/;"	m	class:Property
+value_	weapon/ammo/part_build_const_strategy.h	/^  double value_ = 0;$/;"	m	class:can::PartBuildConstStrategy
+value_type	tools/property.h	/^  typedef T value_type;$/;"	t	class:Property
+vci_conf_	weapon/canalystii.h	/^  VCI_INIT_CONFIG vci_conf_[2];$/;"	m	class:can::CANalystii
+vci_device_ind_	weapon/canalystii.h	/^  unsigned int vci_device_ind_;$/;"	m	class:can::CANalystii
+vci_device_type_	weapon/canalystii.h	/^  unsigned int vci_device_type_;$/;"	m	class:can::CANalystii
+w_	main1.cpp	/^	float w_ = 5.f;$/;"	m	struct:Rect	file:
+weapon_controller_	agent.h	/^  std::unique_ptr<WeaponController> weapon_controller_;$/;"	m	class:can::Agent
+weapon_name_	agent.h	/^  std::string weapon_name_ = "canalystii";$/;"	m	class:can::Agent
+weapon_rate_	agent.h	/^  int weapon_rate_ = 500;$/;"	m	class:can::Agent
+~Agent	agent.cc	/^Agent::~Agent() {$/;"	f	class:can::Agent
+~CANalystii	weapon/canalystii.cc	/^CANalystii::~CANalystii(){$/;"	f	class:can::CANalystii
+~MessageBuildStragegy	can/message_build_strategy.h	/^  virtual ~MessageBuildStragegy() {}$/;"	f	class:MessageBuildStragegy
+~PartBuildStrategy	weapon/ammo/part_build_strategy.h	/^  virtual ~PartBuildStrategy() {}$/;"	f	class:can::PartBuildStrategy
+~Shape	main1.cpp	/^	virtual ~Shape( ) {}$/;"	f	struct:Shape
+~SignalBuildStrategy	can/signal_build_strategy.h	/^  virtual ~SignalBuildStrategy() {}$/;"	f	class:can::SignalBuildStrategy
+~WeaponController	weapon/weapon_controller.cc	/^WeaponController::~WeaponController()$/;"	f	class:can::WeaponController

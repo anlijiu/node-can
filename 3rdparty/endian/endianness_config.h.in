@@ -1,0 +1,457 @@
+/*
+ * Endianness - Detected Files and Settings
+ *
+ * This file is parsed by CMake during makefile generation
+ */
+
+#ifndef ENDIANNESS_GENERATED_CONFIG_H_
+#define ENDIANNESS_GENERATED_CONFIG_H_
+
+/* If a non-system implementation is forced, do not define any headers as available */
+#cmakedefine ENDIANNESS_CONFIG_FORCE_NON_SYSTEM_IMPLEMENTATION
+
+#ifndef ENDIANNESS_CONFIG_FORCE_NON_SYSTEM_IMPLEMENTATION
+
+/* Whether endian.h is available */
+#cmakedefine ENDIANNESS_CONFIG_HAVE_ENDIAN_H
+
+/* Whether sys/endian.h is available */
+#cmakedefine ENDIANNESS_CONFIG_HAVE_SYS_ENDIAN_H
+
+/* Whether sys/param.h is available */
+#cmakedefine ENDIANNESS_CONFIG_HAVE_SYS_PARAM_H
+
+/* Whether inttypes.h is available */
+#cmakedefine ENDIANNESS_CONFIG_HAVE_INTTYPES_H
+
+/* Whether features.h is available */
+#cmakedefine ENDIANNESS_CONFIG_HAVE_FEATURES_H
+
+/* Whether libkern/OSByteOrder.h is available */
+#cmakedefine ENDIANNESS_CONFIG_HAVE_LIBKERN_OSBYTEORDER_H
+
+/* Whether arpa/inet.h is available */
+#cmakedefine ENDIANNESS_CONFIG_HAVE_ARPA_INET_H
+
+/* Whether netinet/in.h is available */
+#cmakedefine ENDIANNESS_CONFIG_HAVE_NETINET_IN_H
+
+/* Whether winsock2.h is available */
+#cmakedefine ENDIANNESS_CONFIG_HAVE_WINSOCK2_H
+
+/* Whether the endian.h or sys/endian.h functions use OpenBSD style (letoh16) */
+#cmakedefine ENDIANNESS_CONFIG_HAVE_OPENBSD_STYLE_ENDIAN_FUNCTIONS
+
+/* Whether the endian.h or sys/endian.h functions use Non-OpenBSD style (le16toh) */
+#cmakedefine ENDIANNESS_CONFIG_HAVE_NON_OPENBSD_STYLE_ENDIAN_FUNCTIONS
+
+/* Whether the compiler supports builtin byteswap intrinsics (__builtin_bswap16) */
+#cmakedefine ENDIANNESS_CONFIG_HAVE_GCC_STYLE_BSWAP_FUNCTIONS
+
+/* Whether the compiler supports builtin byteswap intrinsics (_byteswap_ushort) */
+#cmakedefine ENDIANNESS_CONFIG_HAVE_MSVC_STYLE_BSWAP_FUNCTIONS
+
+/* Whether the 16bit hton functions are available (htons, ntohs) */
+#cmakedefine ENDIANNESS_CONFIG_HAVE_HTONS_FUNCTIONS
+
+/* Whether the 32bit hton functions are available (htonl, ntohl) */
+#cmakedefine ENDIANNESS_CONFIG_HAVE_HTONL_FUNCTIONS
+
+/* Whether the 64bit hton functions are available (htonll, ntohll) */
+#cmakedefine ENDIANNESS_CONFIG_HAVE_HTONLL_FUNCTIONS
+
+#endif /* ENDIANNESS_CONFIG_FORCE_NON_SYSTEM_IMPLEMENTATION */
+
+@ENDIANNESS_CONFIG_TEST_RUN_OUTPUT@
+
+/* ------------------------------------------------------------------- */
+/* Function declarations, depending on the macro values above. */
+
+#include <stddef.h>
+#include <stdint.h>
+
+/* Necessary for some systems to expose functions */
+#if !(defined(_WIN16) || defined(_WIN32) || defined(_WIN64)) && !defined(ENDIANNESS_CONFIG_FORCE_NON_SYSTEM_IMPLEMENTATION)
+#	ifndef __USE_BSD
+#		define __USE_BSD
+#	endif
+#	ifndef _BSD_SOURCE
+#		define _BSD_SOURCE
+#	endif
+#	ifndef _SVID_SOURCE
+#		define _SVID_SOURCE
+#	endif
+#	ifndef _DEFAULT_SOURCE
+#		define _DEFAULT_SOURCE
+#	endif
+#endif
+
+#ifdef ENDIANNESS_CONFIG_HAVE_ENDIAN_H
+#	include <endian.h>
+#endif
+
+#ifdef ENDIANNESS_CONFIG_HAVE_SYS_ENDIAN_H
+#	include <sys/endian.h>
+#endif
+
+#ifdef ENDIANNESS_CONFIG_HAVE_SYS_PARAM_H
+#	include <sys/param.h>
+#endif
+
+#ifdef ENDIANNESS_CONFIG_HAVE_INTTYPES_H
+#	include <inttypes.h>
+#endif
+
+/* 
+	Using features.h we can test for the GLIBC version. 
+	If it is below 2.9 "endian.h" will be missing the required functions.
+	See http://linux.die.net/man/3/endian
+ */
+#ifdef ENDIANNESS_CONFIG_HAVE_FEATURES_H
+#	include <features.h>
+#   if !defined(__GLIBC__) || !defined(__GLIBC_MINOR__) || ((__GLIBC__ < 2) || ((__GLIBC__ == 2) && (__GLIBC_MINOR__ < 9)))
+#		if defined(ENDIANNESS_CONFIG_HAVE_ENDIAN_H)
+#			undef ENDIANNESS_CONFIG_HAVE_ENDIAN_H
+#		endif
+#		if defined(ENDIANNESS_CONFIG_HAVE_SYS_ENDIAN_H)
+#			undef ENDIANNESS_CONFIG_HAVE_SYS_ENDIAN_H
+#		endif
+#	endif
+#endif
+
+#ifdef ENDIANNESS_CONFIG_HAVE_ARPA_INET_H
+#	include <arpa/inet.h>
+#endif
+
+#ifdef ENDIANNESS_CONFIG_HAVE_NETINET_IN_H
+#	include <netinet/in.h>
+#endif
+
+#ifdef ENDIANNESS_CONFIG_HAVE_WINSOCK2_H
+#	include <WinSock2.h>
+#endif
+
+#if defined(ENDIANNESS_CONFIG_HAVE_MSVC_STYLE_BSWAP_FUNCTIONS) && !defined(ENDIANNESS_CONFIG_HAVE_GCC_STYLE_BSWAP_FUNCTIONS)
+#	define __builtin_bswap16(x) _byteswap_ushort((x))
+#	define __builtin_bswap32(x) _byteswap_ulong((x))
+#	define __builtin_bswap64(x) _byteswap_uint64((x))
+#	define ENDIANNESS_CONFIG_HAVE_GCC_STYLE_BSWAP_FUNCTIONS
+#endif
+
+#ifdef ENDIANNESS_CONFIG_HAVE_LIBKERN_OSBYTEORDER_H
+/* Apple Systems, Mac OS */
+#	include <libkern/OSByteOrder.h>
+
+#	define htobe16(x) OSSwapHostToBigInt16(x)
+#	define htole16(x) OSSwapHostToLittleInt16(x)
+#	define betoh16(x) OSSwapBigToHostInt16(x)
+#	define letoh16(x) OSSwapLittleToHostInt16(x)
+
+#	define htobe32(x) OSSwapHostToBigInt32(x)
+#	define htole32(x) OSSwapHostToLittleInt32(x)
+#	define betoh32(x) OSSwapBigToHostInt32(x)
+#	define letoh32(x) OSSwapLittleToHostInt32(x)
+
+#	define htobe64(x) OSSwapHostToBigInt64(x)
+#	define htole64(x) OSSwapHostToLittleInt64(x)
+#	define betoh64(x) OSSwapBigToHostInt64(x)
+#	define letoh64(x) OSSwapLittleToHostInt64(x)
+
+#elif defined(ENDIANNESS_CONFIG_HAVE_NON_OPENBSD_STYLE_ENDIAN_FUNCTIONS) && !defined(ENDIANNESS_CONFIG_HAVE_OPENBSD_STYLE_ENDIAN_FUNCTIONS)
+
+/* Define the methods using those that are in the Non-OpenBSD style */
+#	define betoh16(x) be16toh((x))
+#	define letoh16(x) le16toh((x))
+#	define betoh32(x) be32toh((x))
+#	define letoh32(x) le32toh((x))
+#	define betoh64(x) be64toh((x))
+#	define letoh64(x) le64toh((x))
+
+#elif !defined(ENDIANNESS_CONFIG_HAVE_NON_OPENBSD_STYLE_ENDIAN_FUNCTIONS) && !defined(ENDIANNESS_CONFIG_HAVE_OPENBSD_STYLE_ENDIAN_FUNCTIONS) && (ENDIANNESS_CONFIG_ENDIAN_TYPE == ENDIANNESS_VAL_LITTLE_ENDIAN)
+
+/* 16bit functions */
+#	if defined(ENDIANNESS_CONFIG_HAVE_HTONS_FUNCTIONS)
+#		define htobe16(x) htons(x)
+#		define htole16(x) (x)
+#		define betoh16(x) ntohs(x)
+#		define letoh16(x) (x)
+#	elif defined(ENDIANNESS_CONFIG_HAVE_MSVC_STYLE_BSWAP_FUNCTIONS) || defined(ENDIANNESS_CONFIG_HAVE_GCC_STYLE_BSWAP_FUNCTIONS)
+#		define htobe16(x) __builtin_bswap16(x)
+#		define htole16(x) (x)
+#		define betoh16(x) __builtin_bswap16(x)
+#		define letoh16(x) (x)
+#	else
+#		define htobe16(x) to_big_endian16(x)
+#		define htole16(x) (x)
+#		define betoh16(x) from_big_endian16(x)
+#		define letoh16(x) (x)
+#	endif
+/* 32bit functions */
+#	if defined(ENDIANNESS_CONFIG_HAVE_HTONL_FUNCTIONS)
+#		define htobe32(x) htonl(x)
+#		define htole32(x) (x)
+#			define betoh32(x) ntohl(x)
+#		define letoh32(x) (x)
+#	elif defined(ENDIANNESS_CONFIG_HAVE_MSVC_STYLE_BSWAP_FUNCTIONS) || defined(ENDIANNESS_CONFIG_HAVE_GCC_STYLE_BSWAP_FUNCTIONS)
+#		define htobe32(x) __builtin_bswap32(x)
+#		define htole32(x) (x)
+#		define betoh32(x) __builtin_bswap32(x)
+#		define letoh32(x) (x)
+#	else
+#		define htobe32(x) to_big_endian32(x)
+#		define htole32(x) (x)
+#		define betoh32(x) from_big_endian32(x)
+#		define letoh32(x) (x)
+#	endif
+/* 64bit functions */
+#	if defined(ENDIANNESS_CONFIG_HAVE_HTONLL_FUNCTIONS)
+#		define htobe64(x) htonll(x)
+#		define htole64(x) (x)
+#		define betoh64(x) ntohll(x)
+#		define letoh64(x) (x)
+#	elif defined(ENDIANNESS_CONFIG_HAVE_MSVC_STYLE_BSWAP_FUNCTIONS) || defined(ENDIANNESS_CONFIG_HAVE_GCC_STYLE_BSWAP_FUNCTIONS)
+#		define htobe64(x) __builtin_bswap64(x)
+#		define htole64(x) (x)
+#		define betoh64(x) __builtin_bswap64(x)
+#		define letoh64(x) (x)
+#	else
+#		define htobe64(x) to_big_endian64(x)
+#		define htole64(x) (x)
+#		define betoh64(x) from_big_endian64(x)
+#		define letoh64(x) (x)
+#	endif
+
+#elif !defined(ENDIANNESS_CONFIG_HAVE_NON_OPENBSD_STYLE_ENDIAN_FUNCTIONS) && !defined(ENDIANNESS_CONFIG_HAVE_OPENBSD_STYLE_ENDIAN_FUNCTIONS) && (ENDIANNESS_CONFIG_ENDIAN_TYPE == ENDIANNESS_VAL_BIG_ENDIAN)
+
+/* 16bit functions */
+#	if defined(ENDIANNESS_CONFIG_HAVE_MSVC_STYLE_BSWAP_FUNCTIONS) || defined(ENDIANNESS_CONFIG_HAVE_GCC_STYLE_BSWAP_FUNCTIONS)
+#		define htobe16(x) (x)
+#		define htole16(x) __builtin_bswap16(x)
+#		define betoh16(x) (x)
+#		define letoh16(x) __builtin_bswap16(x)
+#	else
+#		define htobe16(x) (x)
+#		define htole16(x) to_little_endian16(x)
+#		define betoh16(x) (x)
+#		define letoh16(x) from_little_endian16(x)
+#	endif
+/* 32bit functions */
+#	if defined(ENDIANNESS_CONFIG_HAVE_MSVC_STYLE_BSWAP_FUNCTIONS) || defined(ENDIANNESS_CONFIG_HAVE_GCC_STYLE_BSWAP_FUNCTIONS)
+#		define htobe32(x) (x)
+#		define htole32(x) __builtin_bswap32(x)
+#		define betoh32(x) (x)
+#		define letoh32(x) __builtin_bswap32(x)
+#	else
+#		define htobe32(x) (x)
+#		define htole32(x) to_little_endian32(x)
+#		define betoh32(x) (x)
+#		define letoh32(x) from_little_endian32(x)
+#	endif
+/* 64bit functions */
+#	if defined(ENDIANNESS_CONFIG_HAVE_MSVC_STYLE_BSWAP_FUNCTIONS) || defined(ENDIANNESS_CONFIG_HAVE_GCC_STYLE_BSWAP_FUNCTIONS)
+#		define htobe64(x) (x)
+#		define htole64(x) __builtin_bswap64(x)
+#		define betoh64(x) (x)
+#		define letoh64(x) __builtin_bswap64(x)
+#	else
+#		define htobe64(x) (x)
+#		define htole64(x) to_little_endian64(x)
+#		define betoh64(x) (x)
+#		define letoh64(x) from_little_endian64(x)
+#	endif
+
+#else
+/* fallback if no system-provided functions are available */
+#	define htobe16(x) to_big_endian16(x)
+#	define htole16(x) to_little_endian16(x)
+#	define betoh16(x) from_big_endian16(x)
+#	define letoh16(x) from_little_endian16(x)
+#	define htobe32(x) to_big_endian32(x)
+#	define htole32(x) to_little_endian32(x)
+#	define betoh32(x) from_big_endian32(x)
+#	define letoh32(x) from_little_endian32(x)
+#	define htobe64(x) to_big_endian64(x)
+#	define htole64(x) to_little_endian64(x)
+#	define betoh64(x) from_big_endian64(x)
+#	define letoh64(x) from_little_endian64(x)
+#endif
+
+/*
+	Datatypes for accessing the bytes of uintNN_t
+ */
+union Endian_Data_16 {
+	uint16_t integer_value;
+	unsigned char char_values[2];
+};
+ 
+union Endian_Data_32 {
+	uint32_t integer_value;
+	unsigned char char_values[4];
+};
+
+union Endian_Data_64 {
+	uint64_t integer_value;
+	unsigned char char_values[8];
+};
+
+/*
+	Custom, non-system dependent implementations of the endian-switching functions.
+	These depend on the correct findings of the CMake endian test.
+ */
+inline uint16_t to_little_endian16(uint16_t value) {
+	union Endian_Data_16 endian_data;
+	union Endian_Data_16 endian_data_copy;
+	endian_data_copy.integer_value = value;
+	
+	endian_data.char_values[0] = endian_data_copy.char_values[ENDIANNESS_2_BYTE_TYPE_LSB_PLUS_0_INDEX];
+	endian_data.char_values[1] = endian_data_copy.char_values[ENDIANNESS_2_BYTE_TYPE_LSB_PLUS_1_INDEX];
+	
+	return endian_data.integer_value;
+}
+inline uint32_t to_little_endian32(uint32_t value) {
+	union Endian_Data_32 endian_data;
+	union Endian_Data_32 endian_data_copy;
+	endian_data_copy.integer_value = value;
+	
+	endian_data.char_values[0] = endian_data_copy.char_values[ENDIANNESS_4_BYTE_TYPE_LSB_PLUS_0_INDEX];
+	endian_data.char_values[1] = endian_data_copy.char_values[ENDIANNESS_4_BYTE_TYPE_LSB_PLUS_1_INDEX];
+	endian_data.char_values[2] = endian_data_copy.char_values[ENDIANNESS_4_BYTE_TYPE_LSB_PLUS_2_INDEX];
+	endian_data.char_values[3] = endian_data_copy.char_values[ENDIANNESS_4_BYTE_TYPE_LSB_PLUS_3_INDEX];
+	
+	return endian_data.integer_value;
+}
+inline uint64_t to_little_endian64(uint64_t value) {
+	union Endian_Data_64 endian_data;
+	union Endian_Data_64 endian_data_copy;
+	endian_data_copy.integer_value = value;
+	
+	endian_data.char_values[0] = endian_data_copy.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_0_INDEX];
+	endian_data.char_values[1] = endian_data_copy.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_1_INDEX];
+	endian_data.char_values[2] = endian_data_copy.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_2_INDEX];
+	endian_data.char_values[3] = endian_data_copy.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_3_INDEX];
+	endian_data.char_values[4] = endian_data_copy.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_4_INDEX];
+	endian_data.char_values[5] = endian_data_copy.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_5_INDEX];
+	endian_data.char_values[6] = endian_data_copy.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_6_INDEX];
+	endian_data.char_values[7] = endian_data_copy.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_7_INDEX];
+	
+	return endian_data.integer_value;
+}
+
+inline uint16_t to_big_endian16(uint16_t value) {
+	union Endian_Data_16 endian_data;
+	union Endian_Data_16 endian_data_copy;
+	endian_data_copy.integer_value = value;
+	
+	endian_data.char_values[0] = endian_data_copy.char_values[ENDIANNESS_2_BYTE_TYPE_LSB_PLUS_1_INDEX];
+	endian_data.char_values[1] = endian_data_copy.char_values[ENDIANNESS_2_BYTE_TYPE_LSB_PLUS_0_INDEX];
+	
+	return endian_data.integer_value;
+}
+inline uint32_t to_big_endian32(uint32_t value) {
+	union Endian_Data_32 endian_data;
+	union Endian_Data_32 endian_data_copy;
+	endian_data_copy.integer_value = value;
+	
+	endian_data.char_values[0] = endian_data_copy.char_values[ENDIANNESS_4_BYTE_TYPE_LSB_PLUS_3_INDEX];
+	endian_data.char_values[1] = endian_data_copy.char_values[ENDIANNESS_4_BYTE_TYPE_LSB_PLUS_2_INDEX];
+	endian_data.char_values[2] = endian_data_copy.char_values[ENDIANNESS_4_BYTE_TYPE_LSB_PLUS_1_INDEX];
+	endian_data.char_values[3] = endian_data_copy.char_values[ENDIANNESS_4_BYTE_TYPE_LSB_PLUS_0_INDEX];
+	
+	return endian_data.integer_value;
+}
+inline uint64_t to_big_endian64(uint64_t value) {
+	union Endian_Data_64 endian_data;
+	union Endian_Data_64 endian_data_copy;
+	endian_data_copy.integer_value = value;
+	
+	endian_data.char_values[0] = endian_data_copy.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_7_INDEX];
+	endian_data.char_values[1] = endian_data_copy.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_6_INDEX];
+	endian_data.char_values[2] = endian_data_copy.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_5_INDEX];
+	endian_data.char_values[3] = endian_data_copy.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_4_INDEX];
+	endian_data.char_values[4] = endian_data_copy.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_3_INDEX];
+	endian_data.char_values[5] = endian_data_copy.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_2_INDEX];
+	endian_data.char_values[6] = endian_data_copy.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_1_INDEX];
+	endian_data.char_values[7] = endian_data_copy.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_0_INDEX];
+	
+	return endian_data.integer_value;
+}
+
+inline uint16_t from_little_endian16(uint16_t value) {
+	union Endian_Data_16 endian_data;
+	union Endian_Data_16 endian_data_copy;
+	endian_data_copy.integer_value = value;
+	
+	endian_data.char_values[ENDIANNESS_2_BYTE_TYPE_LSB_PLUS_0_INDEX] = endian_data_copy.char_values[0];
+	endian_data.char_values[ENDIANNESS_2_BYTE_TYPE_LSB_PLUS_1_INDEX] = endian_data_copy.char_values[1];
+	
+	return endian_data.integer_value;
+}
+inline uint32_t from_little_endian32(uint32_t value) {
+	union Endian_Data_32 endian_data;
+	union Endian_Data_32 endian_data_copy;
+	endian_data_copy.integer_value = value;
+	
+	endian_data.char_values[ENDIANNESS_4_BYTE_TYPE_LSB_PLUS_0_INDEX] = endian_data_copy.char_values[0];
+	endian_data.char_values[ENDIANNESS_4_BYTE_TYPE_LSB_PLUS_1_INDEX] = endian_data_copy.char_values[1];
+	endian_data.char_values[ENDIANNESS_4_BYTE_TYPE_LSB_PLUS_2_INDEX] = endian_data_copy.char_values[2];
+	endian_data.char_values[ENDIANNESS_4_BYTE_TYPE_LSB_PLUS_3_INDEX] = endian_data_copy.char_values[3];
+	
+	return endian_data.integer_value;
+}
+inline uint64_t from_little_endian64(uint64_t value) {
+	union Endian_Data_64 endian_data;
+	union Endian_Data_64 endian_data_copy;
+	endian_data_copy.integer_value = value;
+	
+	endian_data.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_0_INDEX] = endian_data_copy.char_values[0];
+	endian_data.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_1_INDEX] = endian_data_copy.char_values[1];
+	endian_data.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_2_INDEX] = endian_data_copy.char_values[2];
+	endian_data.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_3_INDEX] = endian_data_copy.char_values[3];
+	endian_data.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_4_INDEX] = endian_data_copy.char_values[4];
+	endian_data.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_5_INDEX] = endian_data_copy.char_values[5];
+	endian_data.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_6_INDEX] = endian_data_copy.char_values[6];
+	endian_data.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_7_INDEX] = endian_data_copy.char_values[7];
+	
+	return endian_data.integer_value;
+}
+
+inline uint16_t from_big_endian16(uint16_t value) {
+	union Endian_Data_16 endian_data;
+	union Endian_Data_16 endian_data_copy;
+	endian_data_copy.integer_value = value;
+	
+	endian_data.char_values[ENDIANNESS_2_BYTE_TYPE_LSB_PLUS_0_INDEX] = endian_data_copy.char_values[1];
+	endian_data.char_values[ENDIANNESS_2_BYTE_TYPE_LSB_PLUS_1_INDEX] = endian_data_copy.char_values[0];
+	
+	return endian_data.integer_value;
+}
+inline uint32_t from_big_endian32(uint32_t value) {
+	union Endian_Data_32 endian_data;
+	union Endian_Data_32 endian_data_copy;
+	endian_data_copy.integer_value = value;
+	
+	endian_data.char_values[ENDIANNESS_4_BYTE_TYPE_LSB_PLUS_0_INDEX] = endian_data_copy.char_values[3];
+	endian_data.char_values[ENDIANNESS_4_BYTE_TYPE_LSB_PLUS_1_INDEX] = endian_data_copy.char_values[2];
+	endian_data.char_values[ENDIANNESS_4_BYTE_TYPE_LSB_PLUS_2_INDEX] = endian_data_copy.char_values[1];
+	endian_data.char_values[ENDIANNESS_4_BYTE_TYPE_LSB_PLUS_3_INDEX] = endian_data_copy.char_values[0];
+	
+	return endian_data.integer_value;
+}
+inline uint64_t from_big_endian64(uint64_t value) {
+	union Endian_Data_64 endian_data;
+	union Endian_Data_64 endian_data_copy;
+	endian_data_copy.integer_value = value;
+	
+	endian_data.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_0_INDEX] = endian_data_copy.char_values[7];
+	endian_data.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_1_INDEX] = endian_data_copy.char_values[6];
+	endian_data.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_2_INDEX] = endian_data_copy.char_values[5];
+	endian_data.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_3_INDEX] = endian_data_copy.char_values[4];
+	endian_data.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_4_INDEX] = endian_data_copy.char_values[3];
+	endian_data.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_5_INDEX] = endian_data_copy.char_values[2];
+	endian_data.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_6_INDEX] = endian_data_copy.char_values[1];
+	endian_data.char_values[ENDIANNESS_8_BYTE_TYPE_LSB_PLUS_7_INDEX] = endian_data_copy.char_values[0];
+	
+	return endian_data.integer_value;
+}
+
+#endif /* ENDIANNESS_GENERATED_CONFIG_H_ */
