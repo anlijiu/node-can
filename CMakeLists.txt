@@ -25,8 +25,6 @@ file(GLOB SOURCE_FILES
         "src/weapon/ammo/*.cc"
         "src/tools/*.h"
         "src/tools/*.cc" 
-        "node_modules/node-addon-api/src/*.h"
-        "node_modules/node-addon-api/src/*.cc"
         )
 
 include_directories(

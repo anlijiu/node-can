@@ -1,2 +1,2 @@
 npm run compile 
-# && cp build/Release/can.node  ../can-tool/build/Release/can.node
+# && cp build/Release/can.node  ../can-tool/app/build/Release/can.node
