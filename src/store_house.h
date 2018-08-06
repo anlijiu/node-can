@@ -48,8 +48,6 @@ public:
     return keys;
   }
 
-
-
 // Registers a factory function for creating a type derived from base
   template<typename Child, typename... Args>
   struct StoreHouseRegister {
@@ -68,8 +66,6 @@ public:
     if (it != getMap().end())
       return false;
     getMap()[realKey] = reinterpret_cast<FakeCreatorFunc>( CreateFunc<T, Args...> );
-//    std::cout << "11111111111111111111 key : " << key << " typeid: " << typeid( RealCreatorFunc<Args...>).name() << " size is " << sizeof...(Args) <<'\n';
-//    std::cout << "11111111111111111111 key : " << key << " typeid: " << typeid( CreateFunc<T, Args...>).name() <<'\n';
 
     return true;
   }
@@ -78,22 +74,12 @@ public:
   static ResultType Create(Key key, Args... args) {
     RealKey realKey{key, std::type_index(typeid(RealCreatorFunc<Args...>))};
     auto it = getMap().find(realKey);
-//
-//    std::cout << "22222222222 key: " << key << " typeid: " << typeid( RealCreatorFunc<Args...>).name() << " size is " << sizeof...(args) << '\n';
-//    std::cout << std::forward<Key>(key);
-//    using expander = int[];
-//    (void)expander{0, (void(std::cout << ',' << std::forward<Args>(args)),0)...};
-//    std::cout << "\n333333\n";
                         
     if (it == getMap().end()) {
-
-//        std::cout << "\n4444\n";
       return {};
     }
 
-//    std::cout << "\n5555\n";
     auto creator = reinterpret_cast<RealCreatorFunc<Args...>>( it->second );
-//    std::cout << "\n66666\n";
     return std::unique_ptr<Object> {creator(std::forward<Args>(args)...)};
   }
 };
