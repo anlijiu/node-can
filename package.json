@@ -6,7 +6,10 @@
   "private": true,
   "gypfile": true,
   "scripts": {
-    "compile": "cmake-js compile --prefer-make"
+    "compile": "cmake-js compile --prefer-make",
+    "clean": "cmake-js clean",
+    "postinstall": "npm run rebuild",
+    "rebuild": "cmake-js rebuild"
   },
   "dependencies": {
     "bindings": "^1.3.0",

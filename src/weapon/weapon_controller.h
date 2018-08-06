@@ -63,7 +63,7 @@ public:
     return mp_signal_meta_;
   };
 
-  std::pair< std::vector<Message>,  std::vector<Message>> AcquireReceiveData();
+  std::pair<std::vector<Message>,  std::vector<Message>> AcquireReceiveData();
 
 protected:
   virtual std::tuple<bool, int> Shoot(Ammo const& ammo) = 0;
