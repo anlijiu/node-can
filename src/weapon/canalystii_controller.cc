@@ -48,6 +48,7 @@ int CanalystiiController::Initialize() {
     cout << "device port init error";
     return -1;
   }
+  cout << "device port init success!!!!!";
 }
 
 
@@ -61,9 +62,11 @@ CanalystiiController::onStartReceive()
     //int len = can_node.receive_can_frame(can_idx,can_obj,recv_len,0);
     unsigned int receive_len = 0;
     if(receive_len = can_node_.receive_can_frame(can_idx,can_obj,recv_len,20) > 0){
+      cout << "CanalystiiController::onStartReceive  received " << receive_len << " entries message." << std::endl;
       if(!IsReceiving()) return;
       std::vector<Message> messages;
       for(int i = 0; i < receive_len; ++i) {
+        if(can_obj[i].ID == 0) continue;
         Message message {
                 (uint32_t)can_obj[i].ID,
                 (uint8_t)can_obj[i].DataLen,

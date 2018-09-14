@@ -53,7 +53,7 @@ WeaponController::AcquireReceiveData()
   std::vector<Message> known;
   std::vector<Message> unknown;
   receive_mtx.lock();
-
+  std::cout << "WeaponController::AcquireReceiveData  recv_messages.size is " << recv_messages.size() << "\n";
   for(auto& p : recv_messages) {
     stringstream_.clear();
     stringstream_.str("");
@@ -107,9 +107,10 @@ WeaponController::UnInitializeReceiver() {
 void
 WeaponController::OnReceiveMessages(std::vector<Message> & messages)
 {
-  for (auto& c : messages)
+  for (auto& c : messages) {
+    std::cout << " messge id:" << c.id << " data:" << c.raw << "\n";
     recv_messages.emplace(c.id, c);
-
+  }
 }
 
 void

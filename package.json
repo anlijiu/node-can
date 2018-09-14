@@ -6,17 +6,18 @@
   "private": true,
   "gypfile": true,
   "scripts": {
-    "compile": "cmake-js compile --prefer-make",
     "clean": "cmake-js clean",
+    "prepublish": "npm run compile",
     "postinstall": "npm run rebuild",
-    "rebuild": "cmake-js rebuild"
+    "rebuild": "cmake-js compile",
+    "compile": "cmake-js compile"
   },
   "dependencies": {
     "bindings": "^1.3.0",
     "cmake-js": "^3.7.3",
+    "node-addon-api": "^1.4.0",
     "node-gyp": "^3.7.0"
   },
   "devDependencies": {
-    "node-addon-api": "^1.4.0"
   }
 }

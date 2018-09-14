@@ -39,6 +39,8 @@ set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
 target_include_directories(${PROJECT_NAME} PRIVATE
         ${CMAKE_SOURCE_DIR}/node_modules/node-addon-api
         ${CMAKE_SOURCE_DIR}/node_modules/node-addon-api/src
+        ../node-addon-api
+        ../node-addon-api/src
         ${CMAKE_SOURCE_DIR}/include
         ${CMAKE_SOURCE_DIR}/src
         ${CMAKE_JS_INC})

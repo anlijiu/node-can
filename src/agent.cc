@@ -20,7 +20,7 @@ FunctionReference Agent::constructor;
 
 void
 Agent::Init(Napi::Env &env, Napi::Object &target) {
-  cout << "Agent::Init" << '\n';
+  cout << "Agent::Init" << "\n";
   Napi::HandleScope scope(env);
   Function ctor = DefineClass(
           env,
@@ -30,7 +30,7 @@ Agent::Init(Napi::Env &env, Napi::Object &target) {
                   InstanceAccessor("supportWeapons", &Agent::Weapons, nullptr),
                   InstanceAccessor("ammoMetas", nullptr, &Agent::SetAmmoMetas),
                   InstanceMethod("syncMetaData", &Agent::SyncMetaData),
-                  InstanceMethod("acquireReceivedMessage", &Agent:: AcquireReceiveData),
+                  InstanceMethod("acquireReceivedMessage", &Agent::AcquireReceiveData),
 //                  InstanceMethod("onMessagesReceived", &Agent::OnMessagesReceived),
 //                  InstanceMethod("onUnknownMessagesReceived", &Agent::OnUnknowMessagesReceived),
                   InstanceMethod("fire", &Agent::Fire),
@@ -49,7 +49,7 @@ Agent::Init(Napi::Env &env, Napi::Object &target) {
 
 Agent::Agent(const CallbackInfo &info)
         : ObjectWrap(info) {
-  cout << "Agent::Agent" << '\n';
+  cout << "Agent::Agent" << "\n";
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   if (info.Length() == 1) {
@@ -72,7 +72,7 @@ Agent::Agent(const CallbackInfo &info)
 }
 
 Agent::~Agent() {
-  cout << "Agent::~Agent" << '\n';
+  cout << "Agent::~Agent" << "\n";
   IntelligenceAgency::UnRegisterAgent(this);
 }
 
@@ -129,7 +129,7 @@ Agent::SyncMetaData(const Napi::CallbackInfo& info) {
 
 Napi::Value
 Agent::Weapons(Napi::CallbackInfo const& info ) {
-  cout << "Agent::Weapons" << '\n';
+  cout << "Agent::Weapons" << "\n";
 
   auto keys = StoreHouse<std::string, WeaponController>::Keys();
 
@@ -144,7 +144,7 @@ Agent::Weapons(Napi::CallbackInfo const& info ) {
 
 void
 Agent::SetWeapon(Napi::CallbackInfo const& info , Napi::Value const& value) {
-  cout << "Agent::SetWeapon" << '\n';
+  cout << "Agent::SetWeapon" << "\n";
 
   weapon_name_ = value.As<Napi::String>().Utf8Value();
   weapon_controller_ = WeaponStoreHouse::Create(weapon_name_, weapon_name_, weapon_rate_);
@@ -152,7 +152,7 @@ Agent::SetWeapon(Napi::CallbackInfo const& info , Napi::Value const& value) {
 
 void
 Agent::SetAmmoMetas(Napi::CallbackInfo const& info , Napi::Value const& value) {
-  cout << "Agent::SetAmmoMetas start" << '\n';
+  cout << "Agent::SetAmmoMetas start" << "\n";
 
 //  Napi::Array jsArr = value.As<Napi::Array>();
 //  std::vector<std::shared_ptr<MessageMeta>> messages;
@@ -242,6 +242,7 @@ Agent::AcquireReceiveData(const Napi::CallbackInfo& info)
   Napi::Array messages_js = Napi::Array::New(env);
   Napi::Array unknown_messages_js = Napi::Array::New(env);
   auto m = weapon_controller_->AcquireReceiveData();
+  int i = 0;
   for(auto e : enumerate(m.first)) {
     const auto& index = e.first;
     const auto& message = e.second;
@@ -250,13 +251,15 @@ Agent::AcquireReceiveData(const Napi::CallbackInfo& info)
     message_js.Set("name", message.name);
     message_js.Set("id", message.id);
     message_js.Set("raw", message.data);
+    i = 0;
     for(auto s : enumerate(message.signals)) {
       Napi::Object signal_js = Napi::Object::New(env);
       signal_js.Set("value", s.second.value);
       signal_js.Set("name", s.second.name);
-      signals_js.Set(s.first, signal_js);
+      signals_js.Set(i, signal_js);
+      ++i;
     }
-    message_js.Set("signal", signals_js);
+    message_js.Set("signals", signals_js);
     messages_js.Set(index, message_js);
   }
   // for(const auto& message: m.first) {
@@ -278,6 +281,7 @@ Agent::AcquireReceiveData(const Napi::CallbackInfo& info)
     const auto& message = e.second;
     Napi::Object unknown_message_js = Napi::Object::New(env);
     unknown_message_js.Set("raw", message.data);
+    unknown_message_js.Set("id", message.id);
     unknown_messages_js.Set(index, unknown_message_js);
   }
   // for(const  auto& message: m.second ) {
@@ -287,7 +291,7 @@ Agent::AcquireReceiveData(const Napi::CallbackInfo& info)
   // }
 
   obj.Set("messages", messages_js);
-  obj.Set("unknown", unknown_messages_js);
+  obj.Set("unknowns", unknown_messages_js);
 
   return obj;
 }
