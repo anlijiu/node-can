@@ -15,7 +15,7 @@ public:
 
   virtual ~PartBuildStrategy() {}
 
-  virtual uint64_t Generate() = 0;
+  virtual int Generate(uint8_t * dest) = 0;
 
   virtual BuildStrategyType Type() = 0;
 

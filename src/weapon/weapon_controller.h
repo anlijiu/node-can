@@ -17,6 +17,7 @@
 
 #include "can/can.h"
 #include "tools/property.h"
+#include "tools/libwecan.h"
 #include "gatling_barrel.h"
 
 namespace can {

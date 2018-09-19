@@ -53,7 +53,6 @@ WeaponController::AcquireReceiveData()
   std::vector<Message> known;
   std::vector<Message> unknown;
   receive_mtx.lock();
-  std::cout << "WeaponController::AcquireReceiveData  recv_messages.size is " << recv_messages.size() << "\n";
   for(auto& p : recv_messages) {
     stringstream_.clear();
     stringstream_.str("");
@@ -68,7 +67,8 @@ WeaponController::AcquireReceiveData()
       p.second.name = iter->second->name;
       for(std::string signal_name : iter->second->signal_names) {
         std::shared_ptr<SignalMeta> signal_meta = mp_signal_meta_.at(signal_name);
-        double signal_value = transform(p.second.raw, p.second.dlc, signal_meta);
+        uint64_t origvalue = ::extract(reinterpret_cast<const uint8_t*>(p.second.raw), signal_meta->start_bit, signal_meta->length, UNSIGNED, MOTOROLA);
+        double signal_value = origvalue * signal_meta->scaling;
         p.second.signals.push_back(Signal{signal_name, signal_value});
       }
       std::cout << " know " << p.second.name << " id " << p.second.id << "\n";
@@ -137,23 +137,22 @@ WeaponController::loadAmmo(std::vector<uint32_t> msg_ids)
 {
   for(uint32_t msg_id : msg_ids) {
     loadAmmo(msg_id);
-//    std::shared_ptr<MessageMeta> message_meta = mp_message_meta_.at(msg_id);
-//    std::vector<std::unique_ptr<AmmoPartGenerator>> part_generators;
-//    for(std::string signal_name : message_meta->signal_names) {
-//      std::shared_ptr<PartBuildStrategy> build_strategy = mp_strategies_.at(signal_name);
-//      part_generators.emplace_back(std::make_unique<AmmoPartGenerator>(build_strategy));
-//    }
-//    ammo_generators_.emplace_back(std::make_unique<AmmoGenerator>(message_meta, part_generators));
   }
 }
 
 void
 WeaponController::loadAmmo(uint32_t msg_id)
 {
+  std::cout << "loadAmmo 000 id is " << msg_id << " mp_message_meta_ size is " << mp_message_meta_.size() << "\n";
+  for(auto msgmeta : mp_message_meta_) {
+    std::cout << msgmeta.first << ": " << msgmeta.second << "\n";
+  }
   std::shared_ptr<MessageMeta> message_meta = mp_message_meta_.at(msg_id);
+  std::cout << "loadAmmo 111" << "\n";
   std::vector<AmmoPartGenerator> part_generators;
   for(std::string signal_name : message_meta->signal_names) {
     std::shared_ptr<PartBuildStrategy> build_strategy = mp_strategies_.at(signal_name);
+    std::cout << "loadAmmo 3" << "\n";
     part_generators.emplace_back(AmmoPartGenerator(build_strategy));
   }
   std::unique_ptr<AmmoGenerator> generator = std::make_unique<AmmoGenerator>(message_meta, part_generators);

@@ -12,10 +12,10 @@ AmmoPartGenerator::AmmoPartGenerator(std::shared_ptr<PartBuildStrategy> strategy
 {
 }
 
-uint64_t
-AmmoPartGenerator::generate()
+int 
+AmmoPartGenerator::generate(uint8_t * dest)
 {
-  return strategy_ ? strategy_->Generate() : 0;
+  return strategy_ ? strategy_->Generate(dest) : 0;
 }
 
 BuildStrategyType

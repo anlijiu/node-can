@@ -11,7 +11,7 @@ namespace can {
 class AmmoPartGenerator {
 public:
   AmmoPartGenerator(std::shared_ptr<PartBuildStrategy>);
-  uint64_t generate();
+  int generate(uint8_t * dest);
   void SetStrategy(std::shared_ptr<PartBuildStrategy>);
   BuildStrategyType StrategyType();
   std::string Name() { return strategy_->Name(); }

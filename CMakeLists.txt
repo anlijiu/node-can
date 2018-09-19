@@ -25,6 +25,7 @@ file(GLOB SOURCE_FILES
         "src/weapon/ammo/*.cc"
         "src/tools/*.h"
         "src/tools/*.cc" 
+        "src/tools/*.c" 
         )
 
 include_directories(

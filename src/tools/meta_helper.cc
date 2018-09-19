@@ -13,17 +13,15 @@ namespace can {
 std::pair<std::string, std::shared_ptr<SignalMeta>>
 unpack_signal_meta(Napi::Env env, Napi::Object signal_meta_obj) {
   std::string name = signal_meta_obj.Get("name").As<Napi::String>().Utf8Value();
-  uint32_t start = std::stoi(signal_meta_obj.Get("startbit").As<Napi::String>().Utf8Value());
-  uint32_t length = std::stoi(signal_meta_obj.Get("bitlength").As<Napi::String>().Utf8Value());
-  std::string endianess = signal_meta_obj.Get("endianess").As<Napi::String>().Utf8Value();
-  double scaling = std::stod(signal_meta_obj.Get("scaling").As<Napi::String>().Utf8Value());
-  double offset = std::stod(signal_meta_obj.Get("offset").As<Napi::String>().Utf8Value());
-  double minimum = std::stod(signal_meta_obj.Get("minimum").As<Napi::String>().Utf8Value());
-  double maximum = std::stod(signal_meta_obj.Get("maximum").As<Napi::String>().Utf8Value());
-  bool is_signed;
-  std::istringstream is(signal_meta_obj.Get("signed").As<Napi::String>().Utf8Value());
-  is >> std::boolalpha >> is_signed;
-  std::string units = signal_meta_obj.Get("units").As<Napi::String>().Utf8Value();
+  uint32_t start = signal_meta_obj.Get("start_bit").As<Napi::Number>().Uint32Value();
+  uint32_t length = signal_meta_obj.Get("length").As<Napi::Number>().Uint32Value();
+  double scaling = signal_meta_obj.Get("scaling").As<Napi::Number>().DoubleValue();
+  double offset = signal_meta_obj.Get("offset").As<Napi::Number>().DoubleValue();
+  double minimum = signal_meta_obj.Get("minimum").As<Napi::Number>().DoubleValue();
+  double maximum = signal_meta_obj.Get("maximum").As<Napi::Number>().DoubleValue();
+  bool is_signed = signal_meta_obj.Get("is_signed").As<Napi::Number>().Uint32Value() > 0;
+  std::string units = "";
+
   return std::make_pair(name, std::make_shared<SignalMeta>(SignalMeta{
           name,
           start,
@@ -40,17 +38,16 @@ unpack_signal_meta(Napi::Env env, Napi::Object signal_meta_obj) {
 
 std::pair<uint32_t, std::shared_ptr<MessageMeta>>
 unpack_message_meta(Napi::Env env, Napi::Object message_meta_obj) {
-  std::cout << " unpack_message_meta in " << '\n';
   std::string name = message_meta_obj.Get("name").As<Napi::String>().Utf8Value();
   uint32_t id = static_cast<uint32_t>(std::stoi(message_meta_obj.Get("id").As<Napi::String>().Utf8Value()));
-  uint8_t dlc = static_cast<uint8_t>(std::stoi(message_meta_obj.Get("dlc").As<Napi::String>().Utf8Value()));
+  uint8_t dlc = static_cast<uint8_t>(message_meta_obj.Get("length").As<Napi::Number>().Uint32Value());
   auto msg_tp = std::make_shared<MessageMeta>(MessageMeta{
           name,
           id,
           dlc,
           std::vector<std::string>()
   });
-  Napi::Value signalValue = message_meta_obj.Get("signal");
+  Napi::Value signalValue = message_meta_obj.Get("signals");
   if(signalValue.IsArray()) {
     Napi::Array signalArr = signalValue.As<Napi::Array>();
     for (unsigned int i = 0; i < signalArr.Length(); ++i) {
@@ -84,7 +81,6 @@ unpack_strategy(Napi::Env env, Napi::Object strategy_js, std::map<std::string, s
   std::shared_ptr<SignalMeta> signal_meta = signals.at(name);
   std::unique_ptr<PartBuildStrategy> strategy = BuildStrategyStoreHouse::Create(type, signal_meta, value);
 
-  std::cout << "unpack_strategy type: " << type << " value :" << value << " name " << name;
   return std::make_pair(name, std::move(strategy));
 }
 

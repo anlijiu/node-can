@@ -9,7 +9,7 @@ namespace can {
 struct Ammo {
   uint32_t id;
   uint8_t dlc;
-  uint64_t data;
+  uint8_t data[8];
 };
 
 } // namespace can

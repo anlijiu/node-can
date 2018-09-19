@@ -3,6 +3,7 @@
 //
 
 #include "tools/utils.h"
+// #include "tools/can_bits.h"
 #include "part_build_const_strategy.h"
 
 namespace can {
@@ -25,11 +26,14 @@ PartBuildConstStrategy::SetValue(double value)
 }
 
 
-uint64_t PartBuildConstStrategy::Generate()
+int PartBuildConstStrategy::Generate(uint8_t * dest)
 {
-  std::cout << " PartBuildConstStrategy::Generate in ,name is " << Name() << " value is " << value_ << "\n";
   auto signal_meta = GetSignalMeta();
-  return transform(value_, signal_meta);
+  uint64_t value = static_cast<uint64_t>(value_/signal_meta->scaling);
+  std::cout << " PartBuildConstStrategy::Generate in ,name is " << Name() << " value is " << value << "\n";
+  ::insert(dest, signal_meta->start_bit, signal_meta->length, value, MOTOROLA);
+  // int status = data_pack(dest, value, signal_meta->start_bit, signal_meta->length);
+  return 1; 
 }
 
 } // namespace can

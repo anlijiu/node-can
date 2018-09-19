@@ -27,19 +27,17 @@ AmmoGenerator::MsgId()
 Ammo
 AmmoGenerator::Generate() {
   uint64_t bitset = 0;
-
-  for(auto t : generators_) {
-    bitset |= t.generate();
-  }
-
-  size_t size = 64;
-
-  std::cout << "  AmmoGenerator::Generate   bitset is  " << bitset << "\n";
-  return Ammo {
+  Ammo ammo {
     message_meta_->id,
     message_meta_->dlc,
-    to_big_endian64(bitset)
+    {0}
   };
+
+  for(auto t : generators_) {
+    t.generate(ammo.data);
+  }
+
+  return ammo;
 }
 
 void

@@ -6,6 +6,7 @@
 
 #include "weapon/ammo/part_build_strategy.h"
 #include "build_strategy_type.h"
+#include "tools/libwecan.h"
 
 namespace can {
 
@@ -18,7 +19,7 @@ public:
   BuildStrategyType Type() override;
   void SetValue(double value);
 
-  uint64_t Generate() override ;
+  int Generate(uint8_t * dest) override ;
 private:
   std::shared_ptr<SignalMeta> signal_meta_ = nullptr;
   double value_ = 0;
