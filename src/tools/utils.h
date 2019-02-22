@@ -8,6 +8,8 @@
 
 namespace can {
 
+std::string currentDateAndTime();
+
 void
 printBits(size_t const size, void const *const ptr);
 

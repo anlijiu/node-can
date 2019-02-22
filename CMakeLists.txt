@@ -24,6 +24,7 @@ file(GLOB SOURCE_FILES
         "src/weapon/ammo/*.h"
         "src/weapon/ammo/*.cc"
         "src/tools/*.h"
+        "src/tools/date/*.h"
         "src/tools/*.cc" 
         "src/tools/*.c" 
         )
@@ -45,4 +46,4 @@ target_include_directories(${PROJECT_NAME} PRIVATE
         ${CMAKE_SOURCE_DIR}/include
         ${CMAKE_SOURCE_DIR}/src
         ${CMAKE_JS_INC})
-target_link_libraries(${PROJECT_NAME} PRIVATE ${CMAKE_JS_LIB} ${CMAKE_SOURCE_DIR}/lib/libcontrolcan.so )
+target_link_libraries(${PROJECT_NAME} PRIVATE ${CMAKE_JS_LIB} ${CMAKE_SOURCE_DIR}/lib/libcontrolcan.so curl)

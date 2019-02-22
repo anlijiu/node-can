@@ -2,10 +2,24 @@
 #include <cstdint>
 #include <cassert>
 #include <iostream>
+#include <chrono>
+#include <string>
+#include <sstream>
+#include <iomanip>
 #include "utils.h"
 
 #include "3rdparty/endian/endianness_config.h"
 namespace can {
+
+std::string currentDateAndTime()
+{
+    auto now = std::chrono::system_clock::now();
+    auto in_time_t = std::chrono::system_clock::to_time_t(now);
+
+    std::stringstream ss;
+    ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d %X %f");
+    return ss.str();
+}
 
 //assumes little endian
 void printBits(size_t const size, void const *const ptr) {

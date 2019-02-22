@@ -2,6 +2,7 @@
 #include <vector>
 #include <cstring>
 #include <cstdint>
+#include <sstream> 
 
 #include "tools/utils.h"
 #include "can/message.h"
@@ -10,7 +11,10 @@
 #include "canalystii_controller.h"
 #include "store_house.h"
 #include "tools/enumerate.h"
+#include "tools/date/tz.h"
+#include "tools/date/date.h"
 
+using namespace std::chrono;
 namespace can {
 
 // StoreHouseRegister<std::string, WeaponController> CanalystiiController::reg(std::string("canalystii"));
@@ -65,7 +69,14 @@ CanalystiiController::onStartReceive()
       cout << "CanalystiiController::onStartReceive  received " << receive_len << " entries message." << std::endl;
       if(!IsReceiving()) return;
       std::vector<Message> messages;
+      auto zonedTime = date::make_zoned(date::current_zone(),
+                                  std::chrono::system_clock::now());
+      std::stringstream stringstream;
+      stringstream << zonedTime;
       for(int i = 0; i < receive_len; ++i) {
+        printf(" id is %d, hex value: %x, time:%s, data is ", can_obj[i].ID, can_obj[i].ID, stringstream.str().c_str());
+        printBits(8, can_obj[i].Data);
+        printf("\n");
         if(can_obj[i].ID == 0) continue;
         Message message {
                 (uint32_t)can_obj[i].ID,
@@ -73,9 +84,6 @@ CanalystiiController::onStartReceive()
         };
         std::memcpy(message.raw, can_obj[i].Data, 8);
         messages.push_back(message);
-//        printf(" id is %d, hex value: %x, data is ", can_obj[i].ID, can_obj[i].ID);
-//        printBits(8, can_obj[i].Data);
-//        printf("\n");
       }
       receive_mtx.lock();
       OnReceiveMessages(messages);

@@ -90,6 +90,8 @@ void Timer::Temporize_() {
 }
 
 void Timer::SleepThenTimeout_() {
+  // std::chrono::microseconds m1(250);
+  // std::this_thread::sleep_for(m1);
   std::this_thread::sleep_for(interval_);
 
   if (this->Running() == true)
