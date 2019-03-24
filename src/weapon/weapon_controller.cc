@@ -16,7 +16,7 @@ WeaponController::WeaponController(std::string const &name)
           timer_(std::bind(&WeaponController::Auto_, this))
 {
   timer_.SetSingleShot(false);
-  timer_.SetInterval(Timer::Interval(200));
+  timer_.SetInterval(Timer::Interval(10));
   InitializeReceiver();
 }
 

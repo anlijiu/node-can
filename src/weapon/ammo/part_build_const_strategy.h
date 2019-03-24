@@ -21,7 +21,7 @@ public:
 
   int Generate(uint8_t * dest) override ;
 private:
-  std::shared_ptr<SignalMeta> signal_meta_ = nullptr;
+  // std::shared_ptr<SignalMeta> signal_meta_ = nullptr;
   double value_ = 0;
   const BuildStrategyType type_ = kConst;
   inline const static StrategyRegister reg{ std::string("const") };

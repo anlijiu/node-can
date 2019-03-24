@@ -79,9 +79,13 @@ unpack_strategy(Napi::Env env, Napi::Object strategy_js, std::map<std::string, s
   int min = strategy_obj.Get("min").ToNumber().Int32Value();
 
   std::shared_ptr<SignalMeta> signal_meta = signals.at(name);
-  std::unique_ptr<PartBuildStrategy> strategy = BuildStrategyStoreHouse::Create(type, signal_meta, value);
-
-  return std::make_pair(name, std::move(strategy));
+  if(type == "const") {
+    std::unique_ptr<PartBuildStrategy> strategy = BuildStrategyStoreHouse::Create(type, signal_meta, value);
+    return std::make_pair(name, std::move(strategy));
+  } else {
+    std::unique_ptr<PartBuildStrategy> strategy = BuildStrategyStoreHouse::Create(type, signal_meta);
+    return std::make_pair(name, std::move(strategy));
+  }
 }
 
 } //namespace can

@@ -1,6 +1,7 @@
 #ifndef CAN_BUILD_STRATEGY_TYPE
 #define CAN_BUILD_STRATEGY_TYPE
 
+#define PI 3.14159265
 
 namespace can {
 
